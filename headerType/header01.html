@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤더 유형1</title>
+    <style>
+        /* 
+            headerType
+            fonts: https://wess.tistory.com/310
+            youtube : https://www.youtube.com/watch?v=y2O1zykEyFQ 
+            figma : https://www.figma.com/file/WpeKVZWhSoraFEeKPNKU8m/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EA%B0%80-%EC%8B%A4%EB%A0%A5%EC%9D%B4%EB%8B%A4.?type=design&node-id=21-173&t=2v6FjiCrYWdznPes-0
+        */ 
+
+        /*fonts*/
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon{
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /*reset*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color :#000;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        em {
+            font-style: normal;
+
+        }
+        #headerType{}
+        .header__wrap  {}
+        .header__inner {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+
+            /*padding : 0 20px 를 주었더니 스크롤이 생기는 이유는 
+              padiing에 width값이 포함되어 있어서 양쪽에 100%가 있으니까 100% + 40px이  되어버립니다.
+              그래서 padding이 width 값 안에 포함되어 있어야 하기 때문에 box-sizing을 사용합니다 .
+            */
+            box-sizing: border-box;
+            border-bottom: 1px solid blue;
+        }
+        .header__logo {
+            font-size: 30px;
+            font-weight: 700;
+            /*대문자*/
+            text-transform: uppercase;
+            width: 20%;
+            /* flex-basis: 20%; */
+        }
+
+        .header__logo a em {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .header__menu {
+            text-align: center;
+            width: 60%;
+        }
+
+        .header__menu ul li {
+            display: inline;
+        }
+        .header__menu ul li a {
+            padding : 13px 30px;
+            margin:  0 5px;
+            transition: 1s;
+        } 
+
+        .header__menu ul li a:hover {
+            background-color:  #F1F1F1;
+            border-radius: 5px;
+        }
+
+        .header__member {
+            width: 20%;
+            text-align: right;
+        }
+
+        .header__member a{ 
+             font-size: 16px;
+             border :  1px solid #000;
+             padding: 10px 30px;
+             border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header id="headerType" class="header__wrap nexon">
+        <div class="header__inner">
+             <div class="header__logo">
+                <a href="#">web <em>site</em></a>
+             </div>
+             <nav class="header__menu">
+                <!-- ul>li*5>a[href="#"] -->
+                <ul>
+                    <li><a href="#"">헤더 영역</a></li>
+                    <li><a href="#">슬라이드 영역</a></li>
+                    <li><a href="#">배너 영역</a></li>
+                    <li><a href="#">컨텐츠 영역</a></li>
+                    <li><a href="#">푸터 영역</a></li>
+                </ul>
+             </nav>
+             <div class="header__member">
+                <a href="#">로그인</a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
