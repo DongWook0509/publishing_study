@@ -8,7 +8,6 @@
 - ul>li*5>a[href="#]
 
 슬라이드영역02 
-/*웹 접근성*/
 
         .bliend {
             width: 0;
