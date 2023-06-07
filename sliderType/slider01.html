@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>슬라이드 영역</title>
+        <style>
+            /* 
+                참고 : https://wtss.tistory.com/480
+                youtube : https://www.youtube.com/watch?v=jjHLaeG4BCs&t=190s
+                figma : https://www.figma.com/file/WpeKVZWhSoraFEeKPNKU8m/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EA%B0%80-%EC%8B%A4%EB%A0%A5%EC%9D%B4%EB%8B%A4.?type=design&node-id=15-245&t=3OoZ1Ex8dbo1Jley-0
+                이미지 용량 줄이는 사이트 : https://imagecompressor.com/ko/
+            */
+            /*reset*/
+
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+        
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a{
+            text-decoration: none;
+        }
+
+        /*우리눈에 안보이는 효과를 가지고 옴*/
+        .bliend {
+            width: 0;
+            height: 0;
+            line-height: 0;
+            overflow: hidden;
+            position: absolute;
+            text-indent: -9999px;
+        }
+        
+        /*웹 접근성*/
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        } 
+
+        /*sliderType*/
+        .slider__wrap{
+        }
+        
+        .slider__inner {}
+        .slider {
+            position: relative;
+        } 
+        .slider__img {
+            /* 
+            background-size는 나중에 나온 것이기 때문에 /를 붙여야 한다. 
+            background: url("img/slider_bg01.jpg") no-repeat center center / cover;
+            */
+            width: ;
+            background: url("img/slider_bg01.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center ;
+        } 
+
+        .slider__img .desc {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 1160px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+        .slider__img .desc span{
+            font-size: 16px;
+            background: #fff;
+            padding: 1px 14px 0 14px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .slider__img .desc h3{
+            font-size: 110px;
+            font-weight: 300; 
+            line-height: 1;
+            color : #fff;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            margin-left: -8px;
+        }
+        .slider__img .desc p{
+            font-size: 20px;
+            /*line-height: 135; -> line-height : 1.34;*/
+            line-height: 1.35;
+    
+            color : #fff;
+            margin-bottom: 120px;
+        }
+        .slider__img .desc .btn .white {
+            font-size: 16px;
+            padding: 11px 50px;
+            background: #fff;
+            /*블록성질로 바꿔서 딱 맞췌게 함*/
+            display: inline-block;
+        }
+
+        .slider__img .desc .btn .black {
+            padding: 11px 50px;
+            background-color: black;
+            color : white;
+        }
+
+        .slider__arrow{}
+
+        .slider__arrow a {
+            position: absolute;
+            transform: translateY(-50px);
+            top: 50%;
+            width: 30px;
+            height: 56px;
+            background: #000;
+            background: url("img/slider_icon.svg");
+        }
+
+        .slider__arrow a.left{
+            left: 20px;
+        }   
+
+        .slider__arrow a.right{
+            right: 20px;
+            background-position: -50px 0;
+        }
+
+        .slider__dot {
+            position: absolute;
+            left: 50%;
+            bottom: 25px;
+            transform: translateX(-50%);
+        }
+        
+
+        .slider__dot a{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url("img/slider_icon.svg");
+            background-position: -20px -70px;
+        }
+
+        .slider__dot a.active {
+            background-position: 0px -70px;
+        }
+
+        .slider__dot a.play {
+            background-position: -40px -70px;
+        }
+
+        .slider__dot a.stop {
+            background-position: -60px -70px;
+        }
+        </style>
+</head>
+<body>
+    <section id="sliderType" class="slider__wrap nexon">
+        <h2 class="bliend">슬라이드 유형</h2>
+        <div class="slider__inner">
+            <div class="slider">
+                <div class="slider__img">
+                    <div class="desc">
+                        <span>developer</span>
+                        <h3>new frontend</h3>
+                        <p>
+                            너무 무리하지 말아요! 이미 당신은 잘하고 있고! <br />
+                            앞으로도 잘할 수 있어요!
+                        </p>
+                        <div class="btn">
+                            <a href="/" class="white">자세히 보기</a>
+                            <a href="/" class="black">사이트  보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__arrow">
+                    <a href="/" class="left"><span class="ir">이전 이미지</span></a>
+                    <a href="/" class="right"><span class="ir">다음 이미지</span></a>
+                </div>
+                <div class="slider__dot">
+                    <a href="/" class="dot active"><span class="ir">1</span></a>
+                    <a href="/" class="dot"><span class="ir">2</span></a>
+                    <a href="/" class="dot"><span class="ir">3</span></a>
+                    <a href="/" class="play"><span class="ir">플레이</span></a>
+                    <a href="/" class="stop"><span class="ir">정지 </span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
