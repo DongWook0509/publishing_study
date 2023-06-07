@@ -9,6 +9,7 @@
 
 슬라이드영역02 
 /*웹 접근성*/
+
         .bliend {
             width: 0;
             height: 0;
