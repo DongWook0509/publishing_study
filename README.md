@@ -2,9 +2,9 @@
 헤더영역01
 요약 
 - box-sizing : border-box;
-- padding: 0 20px를 주었으나 스크롤이 생기는 이유는 
-           padding에 width값이 포함되어 있어서 양쪽에서 100%가 있으니까 100% + 40px이 되어 버립니다.
-           그래서 padding이 width 값 안 에 포함되어 있어야 하기 때문입니다. 그래서 box-sizing을 사용합니다. 
+- padding: 0 20px를 주었으나 스크롤이 생기는 이유는 <br>
+           padding에 width값이 포함되어 있어서 양쪽에서 100%가 있으니까 100% + 40px이 되어 버립니다.<br>
+           그래서 padding이 width 값 안 에 포함되어 있어야 하기 때문입니다. 그래서 box-sizing을 사용합니다. <br>
 - ul>li*5>a[href="#]
 
 슬라이드영역02 
