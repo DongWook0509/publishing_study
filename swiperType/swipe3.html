@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <style>
+        .swiper {
+            background: #ccc;
+            width: 90%;
+            height: 500px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mainslide{
+            text-align: center;
+            height: 100vh;
+        }
+
+        .mainslide span {
+             font-size: 40px;
+             opacity: 0;
+        }
+
+        .mainslide .tit{
+            font-size: 80px;
+            opacity: 0;
+        }
+
+        .mainslide .txt {
+            margin-top: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0;
+        }  
+
+        /*both로 처음으로 돌아갈려는 성질을 바꾸자*/
+        .mainslide .swiper-slide-active span {
+            animation: ani 1s .3s both;    
+        }
+
+        .mainslide .swiper-slide-active .tit {
+            animation: ani 1s .5s both;    
+        }
+
+        .mainslide .swiper-slide-active .txt {
+            animation: ani 1s .7s both;    
+        }
+
+        .bg1{background: url("img/bitch1.jpg") no-repeat center/cover; color:lightcyan;}
+        .bg2{background: url("img/bitch2.jpg") no-repeat center/cover; color:lightcyan;}
+        .bg3{background: url("img/bitch3.jpg") no-repeat center/cover; color:lightcyan;}
+
+        @keyframes ani {
+            0% {opacity: 0; transform: translateY(30px);}
+            100%{opacity: 1;transform: translateY(0px);}
+        }
+    </style>
+</head>
+<body>
+    <!-- Slider main container -->
+    <div class="swiper mainslide">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+            <div class="swiper-slide bg1">
+                <span>사람과의 대화처럼 자연스러운</span>
+                <p class="tit">인공지능(AI) 음성기술의 중심에 <br> 리드스피커 코리가아 있습니다</p>
+                <p class="txt">
+                    It is a long established fact that a reader will be distracted by <br>
+                    the readable content of a page when looking at its layout.<br>
+                    The point of using Lorem Ipsum is that it has a more-or-less normal<br>
+                    distribution of letters, as opposed to using 'Content here, content here', <br>
+                    making it look like readable English.
+                </p>
+            </div>
+            <div class="swiper-slide bg2">
+                <span>사람과의 대화처럼 자연스러운2</span>
+                <p class="tit">인공지능(AI) 음성기술의 중심에 <br> 리드스피커 코리가아 있습니다2</p>
+                <p class="txt">
+                    It is a long established fact that a reader will be distracted by <br>
+                    the readable content of a page when looking at its layout.<br>
+                    The point of using Lorem Ipsum is that it has a more-or-less normal<br>
+                    distribution of letters, as opposed to using 'Content here, content here', <br>
+                    making it look like readable English.2
+                </p>
+            </div>
+            <div class="swiper-slide bg3">
+                <span>사람과의 대화처럼 자연스러운3</span>
+                <p class="tit">인공지능(AI) 음성기술의 중심에 <br> 리드스피커 코리가아 있습니다3</p>
+                <p class="txt">
+                    It is a long established fact that a reader will be distracted by <br>
+                    the readable content of a page when looking at its layout.<br>
+                    The point of using Lorem Ipsum is that it has a more-or-less normal<br>
+                    distribution of letters, as opposed to using 'Content here, content here', <br>
+                    making it look like readable English.3
+                </p>
+            </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div> 
+    
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> 
+    
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+
+    </div>
+
+    <script>
+        const swiper = new Swiper('.mainslide', {
+            loop : true,
+
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+             },
+        });
+
+    </script>
+</body>
+</html>
