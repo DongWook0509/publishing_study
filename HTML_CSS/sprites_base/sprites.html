@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>background-repeat</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+
+li a {
+	display: block;
+	background-image: url("img/tab_sprites.gif ");
+	width: 108px;
+	height: 32px;
+	text-indent: -9999em;
+}
+
+/*2번쨰는 너비는 107만큼 */
+li:nth-child(2) a{
+	background-position: -107px 0;
+}	
+
+li:last-child a{
+	background-position: -214px 0;
+}
+
+/*첫번째것도 구현*/
+li:nth-child(1) a:hover{
+	background-position: 0 -32px;
+}	
+
+
+li:nth-child(2) a:hover{
+	background-position: -107px -32px;
+}	
+
+li:last-child a:hover{
+	background-position: -214px -32px;
+}
+
+</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#">스타</a></li>
+		<li><a href="#">프로그램</a></li>
+		<li><a href="#">이슈</a></li>
+	</ul>
+
+</body>
+</html>
+
+
+
+
+
+
