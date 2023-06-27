@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>css3, transition</title>
+<style type="text/css">
+body{
+	font-family: tahoma,sans-serif;
+	font-size: 12px;
+}
+
+.photo img{
+	opacity: 1;
+	width: 100px;   
+	transition: 
+	all .5s 
+	cubic-bezier(.68,.14,.44,1.25);
+}
+.photo img:hover{
+	opacity: 1;
+	width: 400px;
+	margin-left: 100px;
+}
+</style>
+</head>
+<body>
+
+<div class="photo">
+	<img src="http://placehold.it/200x200" alt="tree">
+</div>
+
+</body>
+</html>

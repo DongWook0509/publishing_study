@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>css3, text-shadow, box-shadow</title>
+<style>
+	body{
+		font-family: tahoma,sans-serif;
+		font-size: 12px;
+	}
+	h1{
+	font-size: 5em;
+	color: red;
+	/*
+	블러 퍼짐효과
+	 text-shadow : x축 y축 블러 색상 (많이 사용)
+	 text-shadow : x축 y축 블러 사이즈 색상 
+	*/
+	text-transform: uppercase;
+	text-shadow: 6px 10px 10px rgba(0, 0, 0, .6),
+	             5px 5px 0 #00f;
+
+	/*
+	블러 퍼짐효과
+	 box-shadow : x축 y축 블러 색상 (많이 사용)
+	 box-shadow : x축 y축 블러 사이즈 색상 
+	*/
+    }
+
+	input {
+		/*tab 해봤자 (focus)를 해봤자 아무표시가 안남  */
+		outline: none;
+		padding: 10px;
+	}
+
+	input:focus {
+		box-shadow: inset 0 0 8px rgba(255, 0, 0, .8);
+	}
+
+	h2 {
+		background: red;
+		padding: 50px;
+		margin: 50px 0;
+	}
+
+	ul ul {opacity: 0;}
+	ul > li:hover ul {opacity: 1;}
+
+	.portfilio li {
+		position: relative;
+		float: left;
+		margin-left: 20px;
+		list-style: none;
+	}
+
+	.portfilio li .hover_content {
+		text-align: center;
+		padding-top: 50px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: rgba(0,0,0,.7);
+		color: #fff;
+		opacity: 0;
+	}
+
+	.portfilio li .hover_content a {
+		color: #fff;
+	}
+
+	.portfilio li:hover .hover_content{
+		opacity: 1;
+	}
+
+</style>
+</head>
+<body>
+
+<h1>text-shadow</h1>
+<input type="text" placeholder="이름을 입력하세요">
+<h2>opacity</h2>
+
+<ul class="portfilio">
+	<li>
+		<img src="http://placehold.it/200x200" alt="200">
+		<div class="hover_content">
+			<h3>img title</h3>
+			<p>
+				img description
+			</p>
+			<a href="">더보기</a>
+		</div>
+	</li>
+	<li>
+		<img src="http://placehold.it/200x200" alt="200">
+		<div class="hover_content">
+			<h3>img title</h3>
+			<p>
+				img description
+			</p>
+			<a href="">더보기</a>
+		</div>
+	</li>
+	<li>
+		<img src="http://placehold.it/200x200" alt="200">
+		<div class="hover_content">
+			<h3>img title</h3>
+			<p>
+				img description
+			</p>
+			<a href="">더보기</a>
+		</div>
+	</li>
+</ul>
+</body>
+</html>
