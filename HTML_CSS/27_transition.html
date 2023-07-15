@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:  tahoma, sans-serif;
+            font-size: 12px;
+        }
+
+        .photo img {
+            /* 
+            width: 100px;
+            transition-property: width;
+            transition-duration: 2s;
+            transition-delay: 1s;
+            transition-timing-function: ease;
+             */
+            /*ease 느리다 */
+            /*ease-in 도입부가 느리고 끝은 빠르다 */
+            width: 100px;
+            opacity: 0 ;
+
+            transition:
+            all 0.5s 0s cubic-bezier(.64,.16,.31,1.24);
+        }
+
+        .photo:hover img {
+            width: 400px;
+            margin-left: 100px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="photo">
+        <img src="http://placehold.it/200x200" alt="tree">
+    </div>
+</body>
+</html>

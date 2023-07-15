@@ -1,0 +1,113 @@
+body {
+  font-family: "Open Sans";
+  font-size: 1.125rem;
+  line-height: 1.618em;
+  color: #454545;
+}
+.wrapper {
+  max-width: 50rem;
+  width: 100%;
+  margin: 2rem auto;
+}
+a {
+  color: #3498db;
+}
+
+a.fade_in_bg{
+  text-decoration: none;
+  border-bottom: 0.0625em dotted #3498db;
+  transition : 0.35s;
+  padding : 0 0.25em 0.05em;
+}
+
+a.fade_in_bg:hover {
+  background-color: #3498db;
+  color : #fff;
+}
+
+a[class^="slide"]{
+  position : relative;
+  text-decoration: none;
+  line-height: 1.5em;
+  padding  : 0 0.25em;
+  border-bottom: 0.0625em dotted #3498db;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+a[class^="slide"]::before {
+  position: absolute;
+  content : attr(data-linktext);
+  transition: 0.35s;
+  background: #3498db;
+  color:#fff;
+ 
+}
+
+a[class^="slide"]:hover::before{
+  left: 0;
+  right: 0;
+  top:0;
+  bottom:0;
+
+}
+
+
+.slide_from_left::before{
+  /*right만 써주면 이 범위의 온전한 범위가 안 잡힙니다.
+    한쪽만 주면 너비가 안 잡힘 */
+  right : 100%;
+  left : -100%;
+}
+
+.slide_from_right::before{
+  left: 100%;
+  right: -100%;
+}
+.slide_from_top::before{
+  top: -100%;
+  bottom: 100%;
+  left :0;
+  right: 0;
+}
+
+.slide_from_bottom::before{
+  top:100%;
+  bottom:-100%;
+  left: 0;
+  right: 0;
+}
+
+a.fade_in_underline {
+  text-decoration: none;
+  padding : 0 0.125em 0.05em;
+  border-bottom: 0.125em solid transparent;
+  transition: all 0.3s;
+}
+
+a.fade_in_underline:hover{
+  border-color: #3498db;
+}
+
+a[class^="underline"]{
+  text-decoration: none;
+  padding: 0 0.125em 0.05em ;
+  position: relative;
+}
+
+a[class^="underline"]::before {
+  content: '';
+  position: absolute;
+  top:100%;
+  border-bottom: 0.125em solid #3498db;
+  transition: 0.35s;
+}
+
+.underline_from_left::before{
+  left: 0; right: 100%;
+}
+
+a[class^="underline"]:hover::before{
+  left: 0; right: 0;
+}

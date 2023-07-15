@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainslide {
+            height: 100vh;
+            text-align: center;
+        }
+
+        .mainslide .swiper-slide{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg1{background: url("img/bitch1.jpg") no-repeat center/cover;}
+        .bg2{background: url("img/bitch2.jpg") no-repeat center/cover;}
+        .bg3{background: url("img/bitch3.jpg") no-repeat center/cover;}
+        span {font-size: 20px; opacity: 0;}
+        .tit {font-size: 80px;font-weight: bold; opacity: 0;}
+        .txt {width: 800px;font-size: 18px;margin-top: 50px; opacity: 0;}
+
+        .mainslide .swiper-slide-active span {animation: ani 1s .3s both;}
+        .mainslide .swiper-slide-active .tit {animation: ani 2s .5s both;}
+        .mainslide .swiper-slide-active .txt {animation: ani 3s .7s both;}
+
+        @keyframes ani {
+            0%{opacity: 0; transform: translateY(70px);}
+            100%{opacity: 1; transform: translateY(0px);}
+        }
+    </style>
+</head>
+<body>  
+    <div class="swiper mainslide">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide bg1">
+            <span>사람들과 대화처럼 자연스러운</span>
+            <p class="tit">
+                인공지능(AI)음성기술의 중심에 <br>
+                리드스피커 코리아에 있습니다.
+            </p>
+            <p class="txt">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </div>
+          <div class="swiper-slide bg2">
+            <span>사람들과 대화처럼 자연스러운222</span>
+            <p class="tit">
+                인공지능(AI)음성기술의 중심에 <br>
+                리드스피커 코리아에 있습니다.
+            </p>
+            <p class="txt">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </div>
+          <div class="swiper-slide bg3">
+            <span>사람들과 대화처럼 자연스러운33</span>
+            <p class="tit">
+                인공지능(AI)음성기술의 중심에 <br>
+                리드스피커 코리아에 있습니다.
+            </p>
+            <p class="txt">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <script>
+        const swiper = new Swiper('.mainslide', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // 버튼 클릭 여부
+            },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: true,
+             },
+            });
+
+      </script>
+</body>
+</html>

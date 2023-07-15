@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Palanquin', sans-serif;
+  line-height: 1.618em;
+  background: #3498db;
+  color: #fff;
+}
+.wrapper {
+  max-width: 50rem;
+  width: 100%;
+  margin: 5rem auto;
+  text-align: center;
+}
+h1.loading {
+  font-size: 3em;
+  font-weight: 400;
+}
+
+
+ /* 
+  animation-name: dot_one;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+ */
+ 
+  /*
+
+  애니메이션 이름 dot_one
+  총시간 2s
+  무한반복
+  */
+
+  
+/*애니메이션 이름 dot_one이 할일
+  투명도가 0 -> 1
+*/
+
+.wrapper .dot-one {animation : dot_one 2s infinite;}
+.wrapper .dot-two {animation : dot_two 2s infinite;}
+.wrapper .dot-three  {animation : dot_three 2s infinite;}
+
+
+@keyframes dot_one{
+  0% {opacity: 0;}
+  15% {opacity: 0;}
+  25% {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@keyframes dot_two{
+  0% {opacity: 0;}
+  40% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 1;}
+}
+@keyframes dot_three{
+  0% {opacity: 0;}
+  65% {opacity: 0;}
+  75% {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+
+.boncing_ball {
+  position: relative;
+  width: 4rem;
+  height: 12rem;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.ball {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+/*1초 바닥 위 무한반복 bounce  */
+/*anumation : ease-in : 처음 도입부가 느리다.*/
+/*anumation : ease-in : 끝 도입부가 느리다.*/
+/*바닥에 닫는 순간에 커져야 한다.
+  즉 34퍼까지는 펴져있다가 35 바닥에 닿는 순간 퍼져야 한다.
+  튕경서 오르는 상태에서도 원상태로 복귀를 해야합니다.
+  */
+@keyframes bounce {
+  0% {top : 0; animation-timing-function: ease-in;}
+  34%{transform:scale(1,1);}
+  35%{top: 8rem; animation-timing-function: ease-out; 
+      transform:scale(1.3,0.7);}
+  45%{transform:scale(1,1);}
+  100%{top: 0;}
+}
+
+
+.spinner{
+  position: relative;
+  height: 6rem;
+  width: 6rem;
+  margin: 6rem auto;
+  border: 2px solid red;
+}
+
+div[class^="curve"]{
+  position: absolute;
+  transform: rotate(135deg);
+  animation: spin 4s infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(135deg); opacity: 1;}
+  25% {opacity: 0.75;}
+  50% {transform: rotate(375deg); opacity: 1;}
+  75% {opacity: 0.75;}
+  100% {transform: rotate(135deg); opacity: 1;}
+}
+
+.curve_top_left {
+  transform-origin: 100% 100%;
+  border-top: 0.5rem solid #fff;
+  border-left: 0.5rem solid #fff;
+  border-top-left-radius : 100%;
+  width: 3rem;
+  height: 3rem;
+}
+
+.curve_top_right{
+  transform-origin: 0 100%;
+  border-top-right-radius: 100%;
+  border-top: 0.5rem solid #fff;
+  border-right: 0.5rem solid #fff;
+  width: 2rem;
+  height: 2rem;
+  top:1rem;
+  right:1rem;
+ 
+}
+
+.curve_bottom_right{
+  transform-origin: 0 0;
+  border-bottom-right-radius: 100%;
+  border-bottom: 0.5rem solid #fff;
+  border-right : 0.5rem solid #fff;
+  width: 3rem;
+  height: 3rem;
+  bottom: 0;
+  right: 0;
+}
+
+.curve_bottom_left {
+  transform-origin: 100% 0%;
+  border-bottom-left-radius : 100%;
+  border-bottom: 0.5rem solid #fff;
+  border-left: 0.5rem solid #fff;
+  width: 2rem;
+  height: 2rem;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.center_circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translate(-50% , -50%);
+  border-radius: 50%;
+  background-color: #fff;
+}

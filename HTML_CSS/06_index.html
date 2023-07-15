@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* [target] {
+            text-decoration: none;
+        }
+
+        [target="_blank"] {
+            background-color: blue;
+            color: white;
+        }
+
+        [target="_self"] {
+            background-color: red;
+            color: white;
+        }
+        [class^="link"] {
+            list-style: none;
+        } */
+
+        :link {
+            text-decoration: none;
+            outline: none;
+        }
+
+        a:hover {
+            color : red;
+        }
+        a:active {
+             background-color: red;
+             text-decoration: underline;
+        }
+        a:visited {
+             color: green;
+        }
+        a:focus {
+            background: blue;
+            color : #fff;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <h1 id="title">css 기본문법</h1>
+    <h2>속성 선택자</h2>
+    <ul>
+        <li class="google"><a href="#" target="_blank">google</a></li>
+        <li class="link1"><a href="#" target="_blank">daum</a></li>
+        <li class="link2"><a href="#" target="_self">naver</a></li>
+    </ul>
+    <a href="mailto:master@abc.com">master@abc.com</a>
+</body>
+</html>

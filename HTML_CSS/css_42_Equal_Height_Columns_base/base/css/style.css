@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans";
+  background: #ecf0f1;
+}
+.wrapper {
+  max-width: 60rem;
+  width: 100%;
+  margin: 2rem auto;
+}
+.gradientbg::before,
+.gradientbg::after {
+  content: " ";
+  display: table;
+}
+.gradientbg::after {
+  clear: both;
+}
+.gradientbg .sidebar {
+  width: 20%;
+  padding: 1.618rem;
+  color: #fff;
+}
+.gradientbg main {
+  width: 60%;
+  padding: 1.618rem;
+  float: left;
+  margin-left: 20%;
+  /* background: #fff; */
+}
+.gradientbg .left {
+  float: left;
+  margin-left: -80%;
+  /* background: #3498db; */
+}  
+.gradientbg .right {
+  float: right;
+ /*  background: #34495e; */
+}
+
+.gradientbg {
+  background: linear-gradient(to right , #3498db 0%, #3498db 20%, #fff 20%, #fff 80%, #34495e 80%, #34495e 100% );
+}
+
+
+/*flex*/
+.flexbg {
+  display: flex;
+}
+
+.flexbg main {background: #fff; width: 60%; padding: 1.618rem; order :2;}
+.flexbg .sidebar{width: 20%;padding: 1.618rem;}
+.flexbg .left {background : #3498db; order: 1;}
+.flexbg .right {background : #34495e; order: 3;}
+
+
+
+
+@media screen and (max-width:768px){
+  /*768까지의 스타일 768px 이하*/
+  .gradientbg main {float:none; margin-left: 0; width: 100%; background-color: #fff;; }
+  .gradientbg .left {margin-left: 0;}
+  .gradientbg .sidebar {width: 50%;}
+  .gradientbg {background: linear-gradient(to right, #3498db 50% , #34495e 50%);};
+
+  .flexbg {
+    flex-wrap: wrap;
+  }
+  .flexbg main {width: 100%; order :1;}
+  .flexbg .sidebar {width: 50%;}
+  .flexbg .left {order:2;}
+  .flexbg .right {order:3;}
+}           
+
+@media screen and (max-width:480px) {
+  /*768까지의 스타일 480px 이하*/
+  body { background:green;}  
+  .gradientbg {background: none;}
+  .gradientbg .sidebar {width: 100%; float:none;}
+  .gradientbg .left {background: #3498db;}
+  .gradientbg .right {background-color: #34495e;}
+}

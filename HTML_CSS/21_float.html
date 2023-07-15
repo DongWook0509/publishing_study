@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>boxmodel</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	background-color: silver;
+	margin-bottom: 50px;
+}
+
+.thumb{
+	float: right;
+}
+/*단어를 끊을 수 없기 때문에 어설프게 
+  내려갔던걸 산산조각 내버림 */
+.content p { 
+	word-break: break-all;
+}
+/*float을 해서 달려드는 속성을 그만! 하고싶습니다.*/
+
+.break {
+	/*달려드는걸 막음*/
+	clear: both;
+}
+
+img{
+	vertical-align: top;
+}
+.phortfolio{
+	background-color: green;
+}
+
+.phortfolio:after{
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.phortfolio p{
+	float: left;
+	border: 2px solid;
+}
+
+.clear_fix {
+	clear: both;
+}
+
+</style>
+</head>
+<body>
+	<h1>float </h1>
+	<h2>float 특징</h2>
+	<div class="content">
+		<img src="http://placehold.it/100x100" alt="thumb" class="thumb">
+		<p>
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph <br class="break"> paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+			paragraph paragraph paragraph paragraph
+		</p>
+	</div>
+
+	<div class="phortfolio">
+		<p>
+			<img src="http://placehold.it/100x100" alt="pt_image"/>
+		</p>
+		<p>
+			<img src="http://placehold.it/100x100" alt="pt_image"/>
+		</p>
+		<p>
+			<img src="http://placehold.it/100x100" alt="pt_image"/>
+		</p>
+		<!-- <div class="clear_fix"></div> -->
+	</div>
+</body>
+</html>

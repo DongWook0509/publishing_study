@@ -1,0 +1,12 @@
+div {
+	
+}
+
+div img{
+	transition:all 0.35s;
+	transform-origin: 0% 0%;
+}
+
+div:hover img{
+	transform: skewY(45deg);
+}

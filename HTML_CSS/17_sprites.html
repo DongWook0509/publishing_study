@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>background-repeat</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+/*a는  inline요소이니까 크기는 나올리가 없다. 
+  그래서 display : block; 
+*/
+li a {
+	display: block;
+	background: url("img/tab_sprites.gif");
+	width: 108px;
+	height: 32px;
+	text-indent: -9999em;
+}
+
+li:nth-child(2) a{
+	/*오른쪽으로 */
+	background-position: -107px 0;
+}
+
+li:nth-child(3) a{
+	/*오른쪽으로 */  
+	background-position: -214px 0;
+}
+
+/*hover 시에*/
+
+li:nth-child(1) a:hover{
+	/*오른쪽으로 */
+	background-position: 0  -32px;
+}
+
+li:nth-child(2) a:hover{
+	/*오른쪽으로 */  
+	background-position: -214px -32px;
+}
+
+li:nth-child(3) a:hover{
+	/*오른쪽으로 */  
+	background-position: -214px -32px;
+}
+
+
+</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#">스타</a></li>
+		<li><a href="#">프로그램</a></li>
+		<li><a href="#">이슈</a></li>
+	</ul>
+
+</body>
+</html>
+
+
+
+
+
+
