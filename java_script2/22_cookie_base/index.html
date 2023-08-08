@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .notice {
+            position: fixed;
+            padding :20px;
+            border : 1px solid #ccc;
+            top: 100px;
+            left :100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="notice">Notice</div>
+    <button onclick="deleteCookie()">쿠키 지우기</button>
+</body>
+<script>
+    console.log(document.cookie); //CookieName=ABC
+
+    //사용자가 처음 왔을때만 나타나게 하겠다. 두번 왔을땐은 안나온다.
+    //document.cookie 있는지 없는지 확인을 합니다. 
+    var currentCookie = document.cookie;
+    var cookieCheck = currentCookie.indexOf('ABC');
+
+    console.log(cookieCheck); //11번째 'ABC'에 있다. 
+    //11번째가 있다는 소리는 이 유저는 이 사이트에 처음온게 아니다. 
+    if (cookieCheck > -1) {
+        //클래스명 notice를 가린다.
+        document.querySelector('.notice').style.display = 'none';
+    } else {
+        document.querySelector('.notice').style.display = 'block';
+    }
+
+
+    /*----------------------------------------------------------------------------------------------------------------*/
+    //1. 전체날짜 반환 
+    //new date -> 현재 전체날짜 반환
+    var date = new Date();
+    //console.log(date); Mon Aug 07 2023 22:01:31 GMT+0900 (한국 표준시)
+    
+    //2. 오늘의 날짜 + 7일 
+    //date.getdate -> 오늘의 날짜 
+    //console.log(date.getDate() + 7); //14
+    //전체 날짜중의 오늘의 날짜의 7일을 더한다.
+    
+    //3 쿠키의 파기날짜 
+    //변수.날짜 지정  -> 변수.setData(새로운날짜);  
+    //새로운 날짜 : 7일 후에 날짜 (date.getDate() + 7);
+    date.setDate(date.getDate() + 7);
+    console.log(date); //Mon Aug 14 2023 22:24:59 GMT+0900 (한국 표준시) -> UTC로 바꿔야 합니다.
+
+    //4. 쿠키를 비우고
+    var setCookie = '';
+    //들어올때마다 이어주세요 
+    // Application -> Cookies 에 들어가서 Name과 Explies에 정보를 적겠습니다. 
+    setCookie += 'CookieName = ABC;';
+    setCookie += 'expires =' + date.toUTCString();
+    console.log(setCookie); //CookieName = ABCexpires =Mon, 14 Aug 2023 13:27:33 GMT 
+    
+    //5. 이제 이 문서자체를 document로 받아오고, cookie라는 변수에 
+    //기존에 만들었던 setCookie의 값을 cookie에다가 집어넣습니다. 
+    document.cookie = setCookie;
+
+    //6. CookieName = ABCexpires =Mon, 14 Aug 2023 13:30:57 GMT의 값을 세미콜론으로 구별을 해야 합니다.
+    //setCookie += 'CookieName = ABC;';
+
+    //7. 쿠키는 서버처럼 열어야 작동을 합니다. 
+
+    /*-----------------------------------------삭제----------------------------------------*/
+    // 삭제  (만기날짜 이전 날짜로 지정 )
+    function deleteCookie() {
+        var date = new Date();
+        date.setDate(date.getDate() - 1);
+
+        var setCookie = '';
+        setCookie += 'CookieName = ABC;';
+        setCookie += 'expires =' + date.toUTCString();
+        
+        document.cookie = setCookie;
+    }
+</script>
+</html>

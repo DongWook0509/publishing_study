@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문자열</h2>
+</body>
+<script>
+    var str = "hello world";
+    var n = str.charAt(2);
+    document.write(n);
+    document.write('<br>');
+    
+    var str = 'hello world';
+    var str1 = 'javascript';
+    
+    var newStr1 = str.concat(str1);
+    document.write('<br>');
+    document.write(newStr1);
+    
+    var str2 = str.indexOf('world');
+    document.write('<br>');
+    document.write(str2);
+
+    /*타이머*/
+    //setTimeout(할일, 시간);
+    //시간이 지나면 할일 = 함수  
+    /* function(){실제로 할일}*/
+    //3초 3000
+    //실제로 할일  = alert('넌 무조건 성공해');
+    //setTimeout(function(){alert('힘들죠');} , 3000);
+
+    //clearTimeout(할일의 이름);
+    //var timer = setTimeout(function(){alert('힘들죠');} , 3000);
+    //clearTimeout(timer);
+
+    /*일정시간마다 할일
+      setInvertal(function(){alret('힘들죠'), 3000})
+    */
+   setInterval(function(){alert('머리감으시겠어요');}, 3000);
+</script>
+</html>

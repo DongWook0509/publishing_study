@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<title></title>	
+<link rel="stylesheet" href="css/main.css">
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+
+
+</head>
+<body>
+
+<!--onclick은 웹표준 방식이 아닙니다. 바람직하지 못한방법입니다.-->
+<!-- 
+    <button id="aplay" onclick = "playAudio()">Play music</button>
+    <button id="apause" onclick = "pauseAudio()">Pause music</button><br> 
+-->
+
+<button id="aplay">Play music</button>
+<button id="apause">Pause music</button><br>
+
+
+<hr>
+<button id="vplay">play video music</button>
+<button id="vpause">pause video music</button>
+
+<!-- 
+     (1) 
+     <video src="video/vivaldi.mp4" controls></video> 
+     controls를 사용하면 ui가 엣지랑 크롬이랑 다름 
+     그래서 controls를 사용하면 안됩니다. 
+
+     (2)
+     autoplay를 사용하면 시작하자마자 바로 동영상이 나옵니다.
+
+     (3)
+     muted를 사용해서 소리는 안나오게 구현을 할 수 있습니다. 
+-->
+<video src="video/vivaldi.mp4" autoplay muted id="myVideo"></video>
+<audio src="audio/Honey_Bee_01_web.mp3" id = "myaudio"></audio>
+
+<script>
+
+    var myAudio = document.getElementById('myaudio');
+
+    document.getElementById('aplay').addEventListener('click',playAudio);
+    document.getElementById('apause').addEventListener('click',pauseAudio);
+
+    function playAudio(){
+        myAudio.play(); //음악 재생해줘
+    }
+
+    function pauseAudio(){
+        myAudio.pause(); //음악 멈춰
+    }
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

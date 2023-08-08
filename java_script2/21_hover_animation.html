@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* RESET RULES
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        :root {
+        --red: firebrick;
+        --white: white;
+        }
+
+        * {
+        padding: 0;
+        margin: 0;
+        }
+
+        a {
+        color: inherit;
+        text-decoration: none;
+        }
+
+        body {
+        font: 22px/1.5 sans-serif;
+        }
+
+        h1 {
+        text-align: center;
+        margin: 20px 0;
+        }
+
+
+        /* MAIN STYLES
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+        .container{
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%; /*너비를 줄었을때는 줄어든 너비의 100%*/
+        }
+
+        .container a {
+            /*하이픈 -- 를 이용해서 잡아주면 var(--red)
+              이렇게 변수를 바꾸면 color 를 유동적으로 바꾸기 가능
+            */
+            border-bottom: 2px dashed var(--red);
+            position: relative;
+        }
+        /*마우스를 올리면  흰색의 배경이 가운데서부터 늘어나야 합니다.*/
+        .container a::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            min-height: 30px;
+            transform: translate(-50%, -50%) scaleX(0);
+            padding: 10px;
+            z-index: -1;
+            transform-origin: 50% 50%;
+            background: var(--white);
+            transition: all 0.3s ease-out;
+        }
+
+        /*bg가 화면 영역을 다 쓰게 합니다..*/
+        .bg{
+            position: absolute;
+            left: 0; right: 0; top: 0; bottom: 0;
+            opacity: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transition: all 0.3s ease-out;
+        }
+
+        /*스크립트 수정후 css*/
+        .bg-show .bg{
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .container a:hover {
+            z-index: 2;
+            border-bottom-color: transparent;
+            color: var(--red);
+        }
+        
+        .container a:hover::before{
+            transform: translate(-50%, -50%) scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="container">
+    <h1>Hover over the links</h1>
+    But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will 
+    <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg" target="_blank">freedom</a> you a account of the system, and expound the actual teachings of the great of the truth, 
+    <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/travel.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/travel.jpg" target='_blank'>travel</a> master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is, but 
+    <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/explore.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/explore.jpg" target="_blank">explore</a> those who do not know how to pursue pleasure rationally encounter consequences that are <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/holiday.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/holiday.jpg" target="_blank">holidays</a> painful. 
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('.container a');
+        const bg = document.querySelector('.bg');
+        const showClass = 'bg-show';
+        /*
+          for(var i=0; i < links.length; i++){
+            links[i]....
+          }
+        */
+        for(const link of links){
+            //마우스 올리기도 전에 이미 네트워크 상에 다운로드 되어있음 
+            //이미 다운로드 되어있는 상태에서 보여주기 때문에 훨씬 빠르게 보여줄 수 있음 
+            const img = new Image(); //원래 html은 없었지만 이미지는 생성
+            //전통적으로는 getAttribute로 사용하지만, data는 dataset 하고 뒤에 하이픈은.bg로 하면 
+            //const img 에 각각의 이미지가 저장되있는 상태입니다.
+            img.src = link.dataset.bg;
+            console.log(img); //<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/holiday.jpg">
+
+            //링크에 마우스가 들어오면 
+            link.addEventListener('mouseenter', function(){
+                //빽틱이 있으면 저기 안에있는 문자열을 그대로 지정을 할 수가 있습니다.
+                //$this = link
+                bg.style.backgroundImage = `url(${this.dataset.bg})`;
+                //2) 지금 bg가 안보이는 상태 -> 보이게 하기 위해서 부모클래스에 클래스명 추가 
+                //클래스 bg의 부모 body로 가서 클래스명을 추가
+                document.body.classList.add(showClass);
+            });
+            
+            //링크에 마우스가 나가면
+            link.addEventListener('mouseleave', function(){
+                document.body.classList.remove('bg-show');
+            });
+
+        }//for 반복문 
+    </script>
+</body>
+</html>

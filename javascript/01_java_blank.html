@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>연산</title>
+		<meta name="description" content="">
+		<meta name="author" content="user1">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	</head>
+
+
+	<body>
+		<!-- 인라인 스크립트-->
+		<script>
+			var six = 6;
+			var seven =7;
+
+			/*document는 body를 뜻합니다.*/
+			document.write(six+seven);
+
+			document.write('<br>')
+			var a = 40; 
+			var b = 30; 
+			var c = 20;
+			var d = 5;
+			var e =  10; 
+			var sum = (a+b-c)*d/e;
+
+			document.write(sum);
+			
+			var str1 = "자바스크립트";
+			var str2 = " 기초";
+			var sum2 = str1 + str2;
+			document.write(sum2);
+
+			/*예제03*/
+			document.write('<br>')
+
+			var time2 = 1; 
+			var time3 = 2;
+			var str3 = "시 입니다."
+			var str4 = time2 + time3 + str3;
+			document.write(str4);
+		
+		</script>
+
+
+		<h2>조건문의 활용</h2>
+		<script>
+			var a = 10;
+			var b = 20;
+			var c = 30;
+
+			if (a>b) {
+				document.write('a가 b보다 크다');
+			} else if ( b > c) {
+				document.write('b가 c보다 크다')
+			} else if (b < c) {
+				document.write('b가 c보다 작다.')
+			} else {
+				document.write('어쩌라구')
+			}
+		</script>
+
+		<h2>조건문의 축약</h2>
+		<script>
+			var a = 10;
+			var b = 20;
+
+			/*
+			if (a > b){
+				document.write('a가 b보다 크다');
+			}else {
+				document.write('a가 보다 작다');
+			}
+			*/
+			if (a > b)
+				document.write('a가 b보다 크다');
+			else 
+				document.write('a가 보다 작다');
+
+
+			(a>b) ?
+			   document.write('a가 b보다 크다'):
+			   document.write('a가 b보다 작다.');
+		</script>
+		</body>
+</html>

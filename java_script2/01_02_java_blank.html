@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+</body>
+<script>
+    var six = 6;
+    var seven = 7;
+
+    document.write(six + seven);
+    document.write('<br>');
+    
+    var a = 80;
+    var b = 50;
+    var c = 40;
+    var d = 30;
+    var e = 20;
+    var f = 10;
+    var sum = (a+b+c)*d/e;
+    document.write(sum);
+    document.write('<br>');
+    
+    var time1 ="현재시각은";
+    var time2 = 1;
+    var time3 = 2;
+    var str3 = "시 입니다.";
+    
+    var str4 = time1 + time2 + time3 + str3;
+    document.write('<br>');
+    document.write(str4);
+    
+    /*if문*/
+    var aa = 10;
+    var bb = 20; 
+    document.write('<br>');
+    if(aa < bb){
+        //괄호 안에 조건이 참일 때 할일 
+        document.write('aa가 bb보다 작다')
+    }
+    else{
+        //괄호 안에 조건이거짓일때 할일 
+        document.write('aa가 bb보다 작다')
+    }
+
+    /*조건문의 활용*/
+    var a =10;
+    var b =20;
+    var c =30;
+    document.write('<br>');
+    if (a > b){
+        document.write('a가 b보다 크다');
+    } else if (b > c){
+        document.write('b가 c보다 크다')
+    } else if (b < c){
+        document.write('b가 c보다 작다.')
+    } else {
+        document.write('어쩌라고');
+    }
+
+    /*논리 연산자*/
+    document.write('<br>');
+    var a1 = 10;
+    var b2 = 20;
+    var c3 = 30;
+    
+    if(a<c && b<c){
+        document.write('a가 c보다 작고 b가 c보다 작다.')
+    }
+
+    /*조건문의 축약*/
+    var aaa = 10;
+    var bbb = 20;
+
+    
+    if(aaa != bbb){
+        if(aaa > bbb){
+            document.write('a가 b보다 크다');
+        }else {
+            document.write('a가 b보다 작다.');
+        }
+    }
+
+</script>
+</html>

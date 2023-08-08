@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid tenetur sapiente commodi aut a distinctio quaerat minima ducimus? Eaque ad ipsa dolorem saepe facilis in suscipit commodi minima, odio omnis.</p>
+        <button id="submit" onclick>Click me</button>
+    </div>
+    <script>
+        var btn = document.getElementById('submit'), 
+            container = document.querySelector('.container');
+        /*이벤트를 연결을 하려면 addEventListenr를 사용합니다 .
+          btn.addEventListener('click') -> 클릭을 하는지 들어라 
+
+          (0) btn.addEventListener('click', '할일')
+          (1) 할일 = function(){}
+          (2) btn.addEventListener('click' , function(){
+              //클릭하면 실제로 할일 
+              btn.style.color = 'red'
+          });
+        */
+
+        btn.addEventListener('click', function(){
+            //클릭하면 실제로 할일 
+            btn.style.color = 'red';
+            console.log('안녕');
+        });
+
+        //mouseenter
+        container.addEventListener('mouseenter', function(){
+            console.log('마우스가 들어왔음');
+        });
+
+        //mouseleave 
+        container.addEventListener('mouseleave', function(){
+            console.log('마우스가 나왔음');
+        });
+
+        /*keydown*/
+        window.addEventListener('keydown' , function(event){
+            console.log(event.key);
+            console.log(event.keyCode);
+        })
+
+
+    </script>
+</body>
+</html>

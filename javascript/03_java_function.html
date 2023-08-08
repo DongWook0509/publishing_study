@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>함수</h1>
+    <script>
+        function send(){
+           // alert('경고');
+        }
+        send();
+
+        var a = 10;
+        var b = 20;
+
+        /*함수에다가 일을 시킬겁니다 함수를 먼저 적어 봅시다*/
+        function add(x,y){
+            var sum =  x + y;
+            /*납품을 합시다.*/
+           return sum;
+        }
+
+        var total = add(a,b);
+        document.write(total);
+    </script>
+
+    <h2>object 객체</h2>
+    <script>
+        //객체 = 변수 + 함수 
+        /*
+          var obj = new Object(); 
+          var obj = {}; 
+        */
+
+        /*         
+        var baby = {};
+        baby.age = "2살";
+        baby.sex = "남자";
+        baby.brithday ="5월1일"; 
+        */
+
+        var baby = {
+            age : '2살',
+            sex: '남자',
+            brithday : '5월 1일',
+            getAge : function(){
+                return this.age;
+            }
+            /*getAge : getAge*/
+        }
+        /*function getAge(){
+            return this.age;
+        }*/
+        var age = baby.getAge();
+
+        document.write(age)
+       /*  
+        document.write(baby.age);
+        document.write(baby.sex);
+        document.write(baby.brithday); 
+        */
+    </script>
+</body>
+</html>

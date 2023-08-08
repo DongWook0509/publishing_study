@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>scroll_menu</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+		<!-- <script type="text/javascript" src="js/scroll_menu.js"></script> -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+
+			<header id="top_menu">
+				<div class="container">
+					<h1 id="logo">
+						<a href="#home">ABC</a>
+					</h1>
+					<ul>
+						<li class="on" data-num="0"><a href="#section1">section 1</a></li>
+						<li data-num="1"><a href="#section2">section 2</a></li>
+						<li data-num="2"><a href="#section3">section 3</a></li>
+					</ul>
+				</div>						
+			</header>
+			<main id="contents">
+				<section id="section1" data-num="0">
+					<div class="container">
+						<h2>section 1</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>
+				<section id="section2" data-num="1">
+					<div class="container">
+						<h2>section 2</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>				
+				<section id="section3" data-num="2">
+					<div class="container">
+						<h2>section 3</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>
+			</main>
+
+
+			<script>
+				//변수지정
+				var $menu = document.querySelectorAll('#top_menu ul li');
+				var $contents = document.querySelectorAll('#contents > section');
+				//현재위치를 담을 그릇 (전부이동하고 현재 위치의 스크롤양을 laStPos에 저장)
+				// 이 lastPos는 사용자가 스크롤을 하면서 이동했을 '윈도우 '현재 스크롤을 한 양과 비교를 하겠다
+                var $lastPos = 0; 
+
+
+				//문서내용이 로드되면 할일
+				document.addEventListener('DOMContentLoaded', function(){
+					
+					//메뉴를 클릭하면 할일 
+					for(var i = 0; i < $menu.length; i++){
+						$menu[i].addEventListener('click', function(ev){
+							ev.preventDefault();
+							var idx = this.getAttribute('data-num');
+							var tt = $contents[idx].offsetTop;
+							console.log(tt);
+
+							//이동은 하지만 쓰윽해서 보이진 않는다.
+							//window.scroll(0, tt); //해당 위치로 '그냥' 이동  // 절대값
+							//window.scrollTo(0, tt); //해당 위치로 '그냥' 이동 // 절대값
+							/*대상.scrollIntoView(); // 대상위치로 이동 
+							$contents[idx].scrollIntoView();*/
+
+							//window.scrollBy(x, 50); //현재 위치에서 50뺀 위치로 이동 //삳애값 
+							//tt 1200을 보고 있다가 2400 갔다가 
+							//쭉쭉쭉 뺴서 다시 1200으로 가는 로직  //setInterval
+
+							//일정시간마다 스크롤양 변동시켜서 위치로 이동 
+							var scrollInterval = setInterval(function(){
+								//현재위치스크롤양 < tt, 현재위치스크롤양 > tt
+								//0 1200
+
+								//현재 윈도우의 스크롤의 양  : pageYOffset
+								//tt != window.pageYOffset
+								//! 정확하게 일치가 안되는 이슈가 있습니다.  -> 순간 그위치를 지나고 있습니다. 
+								//그래서 거의 근접을 하면 
+								// 1200에서 스크롤양을 뺏는데 50이 안되더라 , 사용자가 보고자 하는 tt의 값이 거의 다 왔다.
+								if(tt - window.pageYOffset > 50 || window.pageYOffset - tt > 50){
+									//2400 > 1200
+									//즉 1200인데 2400위치로 이동하고 싶음 -> 현재위치보다 스크롤을 더 많이 만들어줘야 합니다.
+									if(tt > $lastPos){
+										window.scrollBy(0, 55);
+									}else{
+										//2400d을 보고 있는데 사용자가 menu1을 클릭해서 0번째를 보고싶습니다. 
+										window.scrollBy(0, -55);
+									}
+								} else {
+									//멈출 수 있는 조건 
+									clearInterval(scrollInterval);
+									//조금더 정확한 작업을 마지막에 해봤습니다.  scrollTo로 해서 정확한 값으로 바꿔놓자
+									window.scrollTo(0,tt);
+									$lastPos = tt; //1200
+								}
+							}, 15);
+						
+						}); //for 메뉴 반복문
+
+						//스크롤이 생기면 메뉴 활성화
+						window.addEventListener('scroll',function(){
+							var $sct = this.pageYOffset; 
+
+							for(var i = 0; i < $contents.length; i++){
+								if($contents[i].offsetTop <= $sct){
+									var idx = $contents[i].getAttribute('data-num');
+									//모든 메뉴에 on 제거하고, 인덱스번호 해당하는 메뉴에만 on추가 
+									for(var a =0; a < $menu.length; a++ ){
+										$menu[a].classList.remove('on');
+									}
+									$menu[idx].classList.add('on');
+								}
+							}
+						}); //window scroll event
+					}
+
+				}); //DOMContentLoaded
+			</script>
+
+	</body>
+</html>
