@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .num_animation{
+            width: 100px;
+            padding: 20px;
+            font-size: 3em;
+            margin: 0 auto;
+            border: 1px dashed blue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="num_animation" data-rate="90">0</div>
+    <script>
+        var numAnimation = document.querySelector('.num_animation');
+        var targetNum = numAnimation.getAttribute('data-rate');
+        var num = 0;
+
+
+        var timer = setInterval(function(){
+            ++num; //전첨자
+            numAnimation.innerText = num;
+            if(num == targetNum){
+                clearInterval(timer);
+            }
+        }, 10)
+   </script>
+</body>
+</html>

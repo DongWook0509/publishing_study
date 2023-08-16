@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0;
+        background-color: #f0f0f0;
+        }
+
+        .container {
+        width: 90%;
+        margin: 0 auto;
+        }
+
+        .panel-question {
+        margin-bottom: 20px;
+        background-color: #fff;
+        }
+
+        .panel-heading {
+        font-weight: bold;
+        padding: 5px;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+        }
+
+        .panel-body {
+        padding: 15px;
+        display: none;
+        }
+    
+        .active .panel-body {
+        display: block;
+        }
+
+        #btn-collapse {
+        margin-bottom: 10px;
+        background-color: #999;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="btn-collapse">Collapse All</button>
+        <h2>FAQ</h2>
+        <section id="faq">
+          <div class="panel-question active">
+            <div class="panel-heading">
+              + Lorem ipsum dolor sit?
+            </div>
+            <div class="panel-body" id="thisone">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae quo magni soluta minima corporis! Soluta, ipsa et.</p>
+              <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+            </div>
+          </div>
+          
+          <div class="panel-question">
+            <div class="panel-heading">
+              + Lorem ipsum dolor sit?
+            </div>
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae quo magni soluta minima corporis! Soluta, ipsa et.</p>
+              <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+            </div>
+          </div>
+          
+          <div class="panel-question">
+            <div class="panel-heading">
+              + Lorem ipsum dolor sit?
+            </div>
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae quo magni soluta minima corporis! Soluta, ipsa et.</p>
+              <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <script>
+        var panelQuestion = document.querySelectorAll('.panel-question');
+        var collapseBtn = document.querySelector('#btn-collapse');
+        /*
+        panelQuestion을 클릭하면
+        모든 paenlQuestion의 active를 제거하고
+        클릭한 그 panelQuestion에만 ative 추가한다.
+        */
+       for (var i=0; i < panelQuestion.length; i++){
+         panelQuestion[i].addEventListener('click', function(){
+            
+            for(var x = 0; x <panelQuestion.length; x++){
+                panelQuestion[x].classList.remove('active');
+            }
+            //클릭한 그 panelQuestion에만 ative 추가한다.
+            this.classList.add('active');
+         });
+       }
+       
+       collapseBtn.addEventListener('click', function(){
+         for(var x = 0; x <panelQuestion.length; x++){
+            panelQuestion[x].classList.remove('active');
+         }
+       });
+      
+      </script>
+</body>
+</html>

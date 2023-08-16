@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Mobile Detect</h1>
+
+<div class="mobile">mobile device</div>
+<div class="pc">PC device</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>
+    /* 
+    var ratio = window.devicePixelRatio;
+    console.log(ratio); //1
+
+    if(ratio >= 2){
+        document.querySelector('.pc').style.display = 'none';
+    }else{
+        document.querySelector('.mobile').style.display = 'none';
+    } 
+    */
+</script>
+<script>
+    //실제 크롬에는 터치이벤트를 지원을 하지 않습니다. 
+    //핸드폰으로 들어와야 
+   /*  if (Modernizr.touchevents) {
+        document.querySelector('.pc').style.display = 'none';
+    } else {
+        document.querySelector('.mobile').style.display = 'none';
+    } */
+
+    //브라우저가 뭘로 들어오는지, 그리고 그 기기가 뭔지 구분해줍니다.
+    var uAgent = navigator.userAgent;
+    console.log(uAgent);
+
+</script>
+
+</body>
+</html>

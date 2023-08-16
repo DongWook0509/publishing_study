@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<p id="demo"></p>
+ 
+<script>
+var xhttp, xmlDoc, txt, x, i;
+
+//(2) xhttp: 그래? 그럼무슨 요청을 보낼것인데?
+xhttp = new XMLHttpRequest(); //(1) 요청할게 있어 ..! 그럼일단실행
+//(3) 서버가 온전하게 준비되어있는지 안되어있는지 확인
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    xmlDoc =this.responseXML;
+    txt = '';
+    x =xmlDoc.getElementsByTagName('ARTIST');
+    console.log(x);
+   }
+
+   for (i=0; i < x.length; i++){
+     txt = txt + x[i].childNodes[0].nodeValue  + '<br/>'
+   }
+   
+   document.getElementById('demo').innerHTML = txt;
+};
+xhttp.open("GET", "cd_catalog.xml", true);
+xhttp.send();
+</script>
+
+</body>
+</html>

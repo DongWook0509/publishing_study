@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin:0; padding:0;}
+        ul li {list-style:none;}
+
+        .clearfix:after{content:'';display:block; clear:both;}
+
+        body {background:green; overflow-y:scroll; padding-top: 70px;}
+        header {	
+            margin-top:20px;
+            background:linear-gradient(white 50px, rgba(255,255,255,0.5) 50px, rgba(255,255,255,0.5) );
+            height:50px;  
+            overflow:hidden; 
+            transition: height 0.4s;
+            position: absolute;
+            top:0; /*위에 부터 있어 */
+            left: 0;
+            right: 0;
+        }
+
+
+        nav {width:960px; margin:0 auto;}
+        nav > ul > li {float:left; line-height:50px;  /*margin-right: 72px;*/   padding : 0 35px; position: relative;}
+        nav > ul > li ul{ width:100%;  display: none;  position: absolute; }
+        nav > ul > li ul li{white-space:nowrap;}
+
+        nav > ul > li:hover ul {display: block;}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+                <ul class="clearfix">
+                    <li>1st menu
+                            <ul>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>
+                    <li>2nd menu
+                            <ul>
+                                <li>2nd menu menu</li>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>
+                    <li>3rd menu
+                            <ul>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>
+                    <li>4th menu
+                            <ul>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>				
+    
+                </ul>
+        </nav>
+    </header>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <script> 
+        /*
+        var B = A.offsetHeight; //border 까지의 높이
+        var B = A.clientHeight; //padding 까지의 높이
+        */
+        /*   
+            var header = document.querySelector('header'),
+            nav    = document.querySelector('nav'),
+            subMenu = document.querySelectorAll('nav > ul > li'),
+            headerHeight = header.offsetHeight,
+            subMenuHeight = 0; 
+            
+            변수명 subMenuHeight에 subMenu중에서 가장 높이가 큰 요소의 높이를 구해서 저장 
+
+             nav.addEventListener('mouseover', function(){
+                header.style.height = '270px';
+            });
+            
+            nav.addEventListener('mouseout', function(){
+                header.style.height = '50px';
+            }) 
+            */
+
+           //nav > ul > li
+           /*
+            subMenuHeight = subMenu[0].offsetHeight();
+            subMenuHeight = subMenu[1].offsetHeight();
+            subMenuHeight = subMenu[2].offsetHeight();
+            subMenuHeight = subMenu[3].offsetHeight();
+        */
+       
+
+
+        /*  
+           var header  = document.querySelector('header'),
+               mainMenuList = document.querySelectorAll('nav > ul > li'),
+               subMenu     = document.querySelectorAll('nav > ul > li ul'),
+               headerHeight = header.offsetHeight,
+               subMenuHeight = 0; 
+           
+           for (var i = 0; i < subMenu.length; i++){
+               if(subMenu[i].offsetHeight){
+                    subMenuHeight = subMenu[i].offsetHeight;
+                }
+            }
+            mainMenuList에 마우스를 올리면 header의 높이를 headerHeight와 subMenuHeight를 더한 최종크기로 변경
+            mainMenuList에 마우스를 나가면 headerHeight로 변경
+           }
+
+           for(var i = 0; i < mainMenuList.length; i++){
+            mainMenuList[i].addEventListener('mouseover', function(){
+                header.style.height = headerHeight + subMenuHeight + 'px';      
+            })
+            mainMenuList[i].addEventListener('mouseout', function(){
+                header.style.height = headerHeight + 'px';
+            })
+
+            nav > ul > li a  가 있었다면
+             (1)  display : block에서 온전하게 영역을 다 쓰게 하고 , 
+             (2)  nav > ul > li 에 margin-right를 빼 버리고 
+             (2)  nav > ul > li a  양옆에 패딩을 0 20을 주고  
+        }
+
+        */
+
+        var header  = document.querySelector('header'),
+               mainMenuList = document.querySelectorAll('nav > ul > li'),
+               subMenu     = document.querySelectorAll('nav > ul > li ul'),
+               headerHeight = header.offsetHeight,
+               subMenuHeight = 0; 
+
+
+        for(var i = 0; i < mainMenuList.length; i++){
+            mainMenuList[i].addEventListener('mouseover', function(){
+                /*
+                    마우스가 올라가 그 요소의 자식요소(ul)의 높이를 변수명 subMeunHeight에 저장하고 
+                    header의 높이를 headerHeight + subMenuHeight로 변경
+                */
+                subMenuHeight = this.querySelector('ul').offsetHeight;
+                header.style.height = headerHeight + subMenuHeight + 'px';
+
+            })
+            mainMenuList[i].addEventListener('mouseout', function(){
+                header.style.height = headerHeight + 'px';
+            })
+        }
+    </script>
+</body>
+</html>

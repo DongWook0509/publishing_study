@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Arrow Function</h2>
+    <script>
+        //1 
+        function add(x,y){
+            return x + y; 
+        }
+        document.write(add(3,5));
+
+        document.write('<hr>');
+        
+        //2 
+        var add2 = function(x,y){
+            return x + y;
+        }   
+        document.write(add2(3,5));
+        
+        //3 
+        document.write('<hr>');
+        var add3 = (x,y) => {return x + y;}
+        document.write(add3(3,5));
+
+        //4
+        document.write('<hr>');
+        var add4 = (x,y) => x + y;
+        document.write(add4(3,5));
+
+        //5 
+        function add5(num) {
+            return function (value){
+                return num + value;
+            }
+        }
+
+        var add5 = num =>  value => num + value;
+
+        var result1 = add5(2);
+        var result2 = result1(4);
+        document.write(result1);
+
+        //6
+        togglebtn.addEventListener('click', function(){
+            this.style.color = 'red';
+        })
+        togglebtn.addEventListener('click', ()=> {
+            this.style.color = 'red';
+        })
+
+
+    </script>
+</body>
+</html>

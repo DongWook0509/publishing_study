@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>let</h1>
+
+    <pre>
+        let
+        { } scope 범위 안에서만 활용할 변수 생성  
+    </pre>
+
+    <pre>
+        const 상수 - 변할수 없는 값을 지정 
+        var 변수명 = 값
+        let 변수명 = 값
+        const 변수명 = 값 
+    </pre>
+
+    <script>
+        // 변수 , 함수 끌어올리기 : 호이스팅 
+       
+        /*
+        // val 
+
+        var lang = "html";
+
+        function learnWeb(code){
+            //var lang; 호이스팅
+            if(code){
+                var lang = '기초언어';
+                return lang;
+            }
+            return lang;
+        }
+        */
+
+       /*  
+       // let
+
+       let lang = 'html';
+        function learnWeb(code){
+            if(code){
+                let lang = '기초언어';
+                return lang;
+            }
+            return lang
+        }
+
+        document.write(learnWeb(false));
+        */
+
+        var num  = 1;
+        num = num + 100;
+        document.write(num);
+
+        let num1 = 1;
+        num1 = num1 + 100;
+        document.write(num1);
+
+        document.write('<hr>');
+        const num2 = 1;
+        num2 = num2 + 100;
+        document.write(num2);
+    </script>
+</body>
+</html>
