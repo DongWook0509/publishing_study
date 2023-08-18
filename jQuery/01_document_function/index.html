@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>css 스타일 변경하기</title>
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel="stylesheet" href="./css/main.css">
+
+<script src="./js/vendor/jquery-1.10.2.min.js"></script>
+<script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="./js/main.js"></script>
+<script>
+    /*  document.getElementsByTagName('h1')[0].style.color = 'red'; */
+    /*    $('h1').css({'color' : 'red'}); */
+
+    /*1 문서가 로드되고나서 할일 : javaScript*/
+     document.addEventListener('DOMContentLoaded', function(){
+        document.getElementsByTagName('h1')[0].style.color = 'red';
+     });
+
+     /*2. 문서가 로드되고나서 할일  : jQuery */
+     /* 
+        $(document).ready(function(){
+            $('.inner').css({'color':'blue'});
+        }); 
+     */
+
+</script>
+</head>
+<body>
+
+<header class="page-header" role="banner">
+    <h1>Creative jQuery Sample</h1>
+</header>
+
+<div class="page-main" role="main">
+    <div id="typo">
+        <div class="inner">Creative jQuery</div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
