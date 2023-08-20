@@ -29,10 +29,10 @@ $(function(){
             $aside.toggleClass('open');
 
             if($aside.hasClass('open')){
-                //$aside.stop().animate({right:'-70px'}, $duration, 'easeOutBack');
+                $aside.stop().animate({right:'-70px'}, $duration, 'easeOutBack');
                 $button.find('img').attr('src', 'img/btn_close.png');
             }else{
-                //$aside.stop().animate({right:'-350px'}, $duration, 'easeInBack');
+                $aside.stop().animate({right:'-350px'}, $duration, 'easeInBack');
                 $button.find('img').attr('src', 'img/btn_open.png');
             }
 

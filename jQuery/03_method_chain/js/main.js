@@ -27,7 +27,8 @@ $(function(){
     $('#typo').on('mouseover', function(){
         //아이디 type의 배경색을 green 
         $('#typo').css('background-color', 'green');
-      }).on('mouseout', function(){
+    })
+    .on('mouseout', function(){
        //아이디 type의 배경색을 green 
        $('#typo').css('background-color', '#3498db');
     }); //typo mouseout 

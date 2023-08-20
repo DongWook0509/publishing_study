@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/*
+ * Slideshow
+
+(1) height: 465
+(2) 너비는 최소 960
+(3) 배경 : #000
+(4) slideshow_slides는 body보다 넘치게 되니까
+(5) 가로스크롤이 생기고 overflow 로 숨겨야함
+
+ */
+
+ .slideshow{
+    background: #000;
+    height: 465px;
+    min-width: 960px;
+    overflow: hidden;
+    position: relative;
+ }
+
+ .slideshow_slides{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+ }
+
+ .slideshow_slides a{
+    /*a의 크기가 몇이든 상관없이 센터에 있을 수 있습니다*/
+    position: absolute;
+    width:100%;
+    height: 100%;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    text-align: center; /*a태그의 이미지를 가운데 */
+}
+
+.slideshow_nav a {
+   width: 71px;
+   height: 71px;
+   position: absolute;
+   left:50%;
+   top: 50%;
+   transform: translateY(-50%);
+   background: url("../img/sprites.png") no-repeat;
+   text-indent : -9999px;
+}
+
+/*.slideshow_nav a의 클래스가 disabled가 있으면 display : none
+   슬라이더가 이동을 해서 '처음'이라면 앞에 버튼을 안보이게 하는거고 
+   마지막이라고 한다면 '마지막' 버튼을 안 보이게 합니다. 
+*/
+.slideshow_nav a.disabled{display: none;}
+
+.slideshow_nav a.prev{
+   background-position: 0 -20px;
+   margin-left: -480px;
+}
+
+.slideshow_nav a.next {
+   background-position: -81px -20px;
+   margin-left: 409px;
+}
+
+.indicator{
+   position: absolute;
+   bottom: 20px;
+   left: 0;
+   right: 0;
+   display: flex;
+   justify-content: center;
+}
+
+.indicator a{
+   width: 8px;
+   height: 8px;
+   margin: 0 5px;
+   background: url("../img/sprites.png") no-repeat -114px -4px;
+   text-indent: -999em;
+}
+
+.indicator a.active{
+   background-position: -134px -4px;
+}

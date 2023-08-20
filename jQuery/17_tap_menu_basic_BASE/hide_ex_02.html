@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  p { background:#dad; font-weight:bold; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <button>Hide 'em</button>
+
+  <p>Hiya</p>
+  <p>Such interesting text, eh?</p>
+<script>
+    $("button").click(function () {
+      $("p").hide("slow");
+    });    
+</script>
+
+</body>
+</html>

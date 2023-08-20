@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  span { background:#def3ca; padding:3px; float:left; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <button id="hidr">Hide</button>
+  <button id="showr">Show</button>
+  <div>
+
+    <span>Once</span> <span>upon</span> <span>a</span> 
+    <span>time</span> <span>there</span> <span>were</span> 
+    <span>three</span> <span>programmers...</span>
+
+  </div>
+<script>
+    $("#hidr").click(function () {
+      $("span:last-child").hide("fast", function () {
+        $(this).prev().hide("fast", arguments.callee); 
+      });
+    });
+    $("#showr").click(function () {
+      $("span").show(2000);
+    });
+
+</script>
+
+</body>
+</html>
