@@ -6,7 +6,7 @@ body { background: #545454; }
 #top_menu ul {float:right; margin-right:33px;}
 #top_menu ul li { padding:59px 0px 0px 63px; float:left; list-style: none; color: #CCCCCC; }
 #top_menu ul li a { color:#fff; text-decoration:none; }
-#top_menu ul li.on a { color:#000; font-weight:bold; } 
+#top_menu ul li.on a { color:#000; font-weight:bold; }  /*on이라는 클래스가 있다면 , 검게 처리하기한다. */
 #logo {float:left; width:125px; padding-top:40px; color:#FFFFFF;}
 
 #contents {}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* Base */
+html { font-family: "Ropa Sans", sans-serif; font-size: 16px; line-height: 1.5; }
+body { background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); min-width: 960px; }
+.dummy { margin: 0 auto; max-width: 32em; padding: 6em 0; }
+
+/* GOTOP BTN */
+
+.go_top {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    background: #333;
+    color: #fff;
+    right: 50px;
+    bottom: 50px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
