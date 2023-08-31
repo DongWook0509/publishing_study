@@ -1,0 +1,8 @@
+{
+  "name": "fitvids",
+  "version": "1.0.0",
+  "dependencies": {
+    "fitvids": "^2.1.1",
+    "jquery": "^3.7.1"
+  }
+}

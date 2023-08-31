@@ -48,38 +48,6 @@ table {
 }
 .clearfix:after { content:''; clear:both; display:block;}
 
-/* -------------------- LAYOUT -------------------- */
-.progress-bar {
-	position: relative;
-	width: 960px; height: 30px;
-	margin: 3em auto;
-	border: 1px solid green; 
-}
-
-.bar {
-	position: absolute;
-	left: 0; top:0; bottom: 0;
-	/*data-rate="60"에 따라서 너비가 바뀌기때문에 width:0 */
-	width: 0;
-	background: green;
-}
-
-.rate {
-	position: absolute;
-	top:0; bottom:0; right: 15px;
-	font-size: 1.2em; color : green;
-	line-height: 30px;
-}
-/* -------------------- HEADER -------------------- */
-
-
-/* -------------------- SLIDER -------------------- */
-
-
-/* -------------------- FOOTER -------------------- */
-
-
-
-
+.section{ width:960px; margin:0 auto; height:1200px; border:1px solid #ccc;}
 
 

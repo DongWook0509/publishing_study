@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Lesson Retina.js</title>
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<!-- Demo content -->
+	<div class="demo-container">
+		<p>demo container</p>
+	</div>
+
+	<!-- Add Bower components -->
+	<h2>javascript return img</h2>
+	<img src = "images/image.jpg" alt ="image_for_pc" class="ratina" >
+	
+	<h2>retina.js img</h2>
+	<img src = "images/image.jpg"  data-at2x="images/image@2x.jpg" data-rjs="2" alt ="image_for_pc" >
+
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/retina.js/2.1.3/retina.min.js" integrity="sha512-9RcSZpXlWiAq12BM82QI0qRtusQJonuUZ/h/bZl+Cd6O4Pw7UnGV6gnCcS5wV03/zvLwCeL3enaUa0RPy+VM2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		var $ratio = window.devicePixelRatio;
+		console.log($ratio);
+		if($ratio > 1){
+			$('.ratina').attr('src', 'images/image@2x.jpg').css({width:500, height:333});
+		}else{
+			$('.ratina').attr('src', 'images/image.jpg')
+		}
+	</script>
+</body>
+</html>
+

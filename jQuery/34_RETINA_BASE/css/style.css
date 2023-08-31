@@ -1,0 +1,18 @@
+.demo-container {
+    width: 500px;
+    height: 333px;
+    background: url("../images/image.jpg") no-repeat 0 0 / 100% 100%;
+    text-indent: -9999px;
+}
+
+
+/*이 -webkit-은  can i use의 다른 -webkit-입니다
+스마트폰의 브라우저에서 사용하는엔진의 이름입니다. */
+
+/*따라서, background 속성은 배경의 여러 측면을 설정할 때 사용되며,
+ background-image 속성은 단순히 배경 이미지를 설정할 때 사용됩니다.*/
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .demo-container {
+        background-image: url("../images/image@2x.jpg");
+    }
+}

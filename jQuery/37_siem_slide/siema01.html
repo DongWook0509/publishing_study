@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { font-family: sans-serif; }
+        body { margin: 0; }
+        .siema{
+            width: 320px;
+            height: 240px;
+            margin : 3em auto;
+        }
+    </style>
+</head>
+<body>
+
+    
+  <div class="siema">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-01.jpg" />
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-02.jpg" />
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-03.jpg" />
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-04.jpg" />
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/siema@1.5.1/dist/siema.min.js"></script>
+  <script>
+    new Siema({
+        selector: '.siema',
+        loop: true , /*끝 페이지에가면 다시 처음페이지로 돌려주세요*/
+        startIndex : 2, /*0 , 1, 2 , 순으로 가는데 2번부터 보여줘*/
+        draggable : true, /*draggable을 fasle로 하면 넘어가는건 불가능합니다.*/
+        threshold: 200 /*200정도는 문지방을 해야 넘어감*/
+    });
+  </script>
+</body>
+</html>

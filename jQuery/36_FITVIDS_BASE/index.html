@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 6 - FitVids.js</title>
+
+	<style>
+		.container, .container-2 {
+			width: 80%;
+			margin: 2em auto;
+		}
+
+		.container iframe, .container-2 iframe{
+			width: 100%;
+		}
+	</style>
+</head>
+	<!-- Add Bower components -->
+<body>
+
+	<!-- Demo content -->
+	<div class="container">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/KXYpMbw4sNc?si=4q3kHMyQmKkQfbyf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	</div>
+
+	<div class="container-2">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/UzntzuUWkzo?si=0eb1qG2Lp7GwthEO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha512-/2sZKAsHDmHNoevKR/xsUKe+Bpf692q4tHNQs9VWWz0ujJ9JBM67iFYbIEdfDV9I2BaodgT5MIg/FTUmUv3oyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+	<!--add Bower components-->
+	<script src="jquery.min.js"></script>
+	<script src="fitvids.min.js"></script>
+
+	<script>
+		$(".container, container-2").fitVids();
+	</script>
+
+</body>
+</html>

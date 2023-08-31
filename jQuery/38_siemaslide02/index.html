@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*container의 크기는 640으로 바꿔주세요
+          slider의 크기도 640으로 늘려주세요
+        */
+        * { font-family: sans-serif; }
+        body { margin: 0; }
+
+        .slider-container { 
+        width: 320px;
+        height: 240px;
+        margin: 0 auto;
+        position: relative;
+        }
+
+        .slider {
+        width: 320px;
+        height: 240px;
+        margin: 0 auto;
+        }
+
+        .prev, .next {
+        background: rgba(255,255,255,.5);
+        position: absolute;
+        width: 30px;
+        height: 60px;
+        top: 100px;
+        border: none;
+        cursor: pointer;
+        transition: all .25s;
+        font-weight: bold;
+        }
+        .next { right: 0; }
+        .prev:hover, .next:hover { background: rgba(255,255,255,.75); }
+        button:focus { outline: 0; }
+
+        .slide {
+        width: 320px;
+        height: 240px;
+        line-height: 240px;
+        text-align: center;
+        color: #fff;
+        }
+        .slide h2 { text-shadow: 2px 2px 3px rgba(0,0,0,.75); }
+
+        .slide01 {
+        background: #333 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-01.jpg') center center no-repeat;
+        background-size: cover;
+        }
+        .slide02 {
+        background: #333 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-02.jpg') center center no-repeat;
+        background-size: cover;
+        }
+        .slide03 {
+        background: #333 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-03.jpg') center center no-repeat;
+        background-size: cover;
+        }
+        .slide04 {
+        background: #333 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-04.jpg') center center no-repeat;
+        background-size: cover;
+        }
+
+        .slider-nav {
+        text-align: center;
+        }
+        .btn-nav {
+        border: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        padding: 0;
+        cursor: pointer;
+        }
+        .btn-nav.active {
+        background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+          <div class="slide slide01"><h2>Slide 1</h2></div>
+          <div class="slide slide02"><h2>Slide 2</h2></div>
+          <div class="slide slide03"><h2>Slide 3</h2></div>
+          <div class="slide slide04"><h2>Slide 4</h2></div>
+        </div>
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+      </div>
+      <div class="slider-nav">
+        <button class="btn-nav" data-index="0"></button>
+        <button class="btn-nav" data-index="1"></button>
+        <button class="btn-nav" data-index="2"></button>
+        <button class="btn-nav" data-index="3"></button>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/siema@1.5.1/dist/siema.min.js"></script>
+      <script> 
+        var slideIndex = 0;
+        var numSlides = $('.slide').length;
+        var pagerBtn = $('.btn-nav');
+        /*
+        pagerBtn을 클릭하면 클릭된 그 요소의 인덱스 번호를 goTo()메서드에 매개변수로 넘겨서 슬라이드 작동하도록.
+        */
+
+        const slideshow = new Siema({
+        selector: '.slider',
+        loop: true,
+        threshold: 200,
+        duration: 1000, /*이동하는 시간을 1초로 해서 보여줘*/
+        /*perPage :2 하나에다가 슬라이더 2개를 넣어줘 */
+        });
+
+        $(".prev").on("click", function() {
+            slideshow.prev();
+        });
+
+        $(".next").on("click", function() {
+            slideshow.next();
+        });
+
+        //4초마다 다음슬라이드로 이동하도록 작성을 합니다.
+        //setInterval(할일, 시간);
+        //할일 = 함수 function(){실제로 할일}
+        //실제로 할일 slideshow.next();
+
+        //전역변수 공공재로 만들어버립니다.
+        var timer; 
+
+        function autoSlide(){
+            //지역변수라서 사용할 수가 없어서 전역변수로 바꿨습니다. 
+            timer = setInterval(function(){
+                slideshow.next();
+            }, 4000);
+        }
+        //함수실행
+        autoSlide();
+        //clearIntervla(대상의 이름)
+        $('.slider').mouseover(function(){
+            clearInterval(timer);
+        })
+        .mouseout(function(){
+            autoSlide();
+        });
+
+        //idx 클릭한 요소의 순번 (인덱스)
+        $('.btn-nav').click(function(){
+            var idx = $(this).index();
+            slideshow.goTo(idx);
+            //$('.btn-nav').removeClass('active');
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+
+      </script>
+</body>
+</html>

@@ -7,28 +7,88 @@
 <meta name="robots" content="index, follow">
 <title></title>	
 <link rel="stylesheet" href="css/main.css">
-	
-<!--[if lt IE 9]>
-<script src="js/IE9.js"></script>
-<script src="js/html5shiv.js"></script>
- <script src="js/respond.min.js"></script>
- 
-<![endif]-->
-<!--[if lt IE 8]>
-<script src="js/IE8.js"></script>
-<script src="js/IE8.js">IE7_PNG_SUFFIX=".png";</script>
-<![endif]-->
 
-<!--[if lt IE 7]>
-<script src="js/IE7.js"></script>
+<!--[if lt IE 9]>
+    <script src="js/IE9.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    
+    <![endif]-->
+    <!--[if lt IE 8]>
+        <script src="js/IE8.js"></script>
+        <script src="js/IE8.js">IE7_PNG_SUFFIX=".png";</script>
+        <![endif]-->
+        
+        <!--[if lt IE 7]>
+            <script src="js/IE7.js"></script>
 <![endif]-->	
 
 </head>
 <body>
     <div class="progress-bar">
         <div class="bar"></div>
-        <div class="rate"></div>
+        <div class="rate" data-rate="100"></div>
     </div>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        var progressWrap = $('.progress-bar'),
+            progressBar = progressWrap.find('.bar'),
+            progressText = progressWrap.find('.rate');
+            progressRate = progressText.attr('data-rate');
+            console.log(progressRate);
+        
+        //bar animation 2.5s width 바뀌는 애니메이트 
+        //퍼센트 주의
+
+        progressBar.animate({width:progressRate + '%'},2500);
+
+        
+        //progressText.text('0%');
+        //1000/10 0.1s 마다 0 -> 1 -> 2 ...60
+        //일정시간마다 할일 setInterval(할일, 시간);
+        //함수명 textAnimation = function(){ 실제로 할일 }
+        //실제로 할일 0% -> 1%, 1% - 2% progressText.text('0%');
+ 
+        /* (1) SetInterval 방법
+                                  //0.1초 마다
+        setInterval(textAnimation, 1000/10);
+
+        function textAnimation(){
+            //0.1s 마다 이 너비를 구해야합니다.
+            //10px 20px 30px.... 전체를 봤을때 예를 들어서 30px를 몇 30px 입니까?
+            var currentWidth = progressBar.width() / $('.progress-bar').width() * 100
+            //960px = 100px 
+            //100px를 채우면 몇 퍼센트입니까?
+            //100/960 * 100
+
+            //매개변수를 정수로 올림 
+            progressText.text(Math.ceil(currentWidth) + '%');
+        }
+        */
+
+       /*2번째 방법 animate 활용*/
+       // progressBar.animate({width:'60%'},2500,'easeInOutQuint', function(){....});
+       // 옵션 값 , 옵션 값 
+       /* css 속성중에서 수치가 있는 요소만 animate 
+       progressBar.animate({width:'60%'},{
+         duration: 2500,
+         easing: 'easeInOutQuint',
+         complete: function(){}
+       })
+       */
+
+       //animate 옵션을 활용을 하면, 사용자속성을 만들고, 그 속성이 바뀌는걸 작성할 수 있습니다.
+       $({rate:0}).animate({rate:progressRate}, {
+         duration: 2500, //1.5s
+         //중간중간 마다 할일 progress
+         //0에서 24s 로 바뀌는 그때그때마다의 할일 
+         progress:function(){
+            var now = this.rate;
+            progressText.text(Math.ceil(now) + '%');
+         }
+       });
+        </script>
 </body>
 </html>
 
