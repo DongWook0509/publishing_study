@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 4 - jQuery Validation</title>
+	<style>
+		span.bad{
+			animation : fadeIn 0.5s forwards;
+			background: navy;
+			color: #fff;
+			padding: 5px;
+			white-space: nowrap;
+			border-radius: 10px;
+		}
+
+		@keyframes fadeIn {
+			from {opacity: 0; margin-left: 50px;}
+			to {opacity: 1; margin-left: 20px;}
+		}
+	</style>
+</head>
+<body>
+	<!--1. novalidate를 기입합니다.-->
+	<form action="#" method="post" id="sendForm" novalidate>
+		<fieldset>
+			<legend>Send Message</legend>
+			<p>
+				<label for="userName">Name(required, at laest 2 characters)</label>
+				<input type="text" id ="userName" name = "userName">
+			</p>
+			<p>
+				<label for="userName">Email(required)</label>
+				<input type="email" id ="userEmail" name = "userEmail">
+			</p>
+			<p>
+				<label for="userUrl">Website</label>
+				<input type="url" id ="userUrl" name = "userUrl">
+			</p>
+			<p>
+				<label for="userMsg">Message</label>
+				<textarea name="userMsg" id="userMsg" cols="30" rows="10"></textarea>
+			</p>
+			<!--p>input[type="submit"][value="Send Message"]-->
+			<p><input type="submit" value="Send Message"></p>	
+		</fieldset>
+	</form>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		$("#sendForm").validate({
+			rules:{
+				userName :{
+					required : true,
+					minlength : 2
+				},
+				userEmail:{
+					required : true,
+					email: true
+				}
+			},
+			messages:{
+				//우리만의 메세지를 띄워봅시다. 
+				//name의 이름을 따라갑니다 (주의)
+				userName : {
+					required: '이름은 필수 입니다.',
+					minlength : '최소 2글자 이상 입력해주세요'
+				}, 
+				userEmail : {
+					required: '이메일은 필수 입니다.',
+					email : '형식을 지켜주세요'
+				}
+			},
+			errorElement:'span',
+			errorClass :'bad',
+			validClass :'good'
+		});
+	</script>
+</body>
+</html>

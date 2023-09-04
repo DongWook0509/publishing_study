@@ -120,11 +120,37 @@
 
         $(".prev").on("click", function() {
             slideshow.prev();
+
+            //슬라이더의 인덱스 번호가 0 보다 클때만 뺌 
+            if(slideIndex > 0){
+                slideIndex--; 
+            }else{
+                //0번일때 이전버튼을 클릭했을때 3으로 가게 하고싶습니다.
+                slideIndex = numSlide-1;
+            }
+            updateNav();
         });
 
         $(".next").on("click", function() {
             slideshow.next();
+            //3(길이)보다 작으면
+            if(slideIndex < numSlide -1){
+                slideIndex++
+            }else{
+                //마지막일때 처음으로 바뀔려면 0 으로 바뀌어야 합니다.
+                slideIndex = 0;
+            }
+            updateNav();
+            
+            //slideIndex 하나씩 증가
         });
+
+        //반복했기때문에 
+        function updateNav(){
+            $('.btn-nav').eq(slideIndex).addClass('active').siblings().removeClass('active');
+        }
+
+        $('.btn-nav').eq(0).addClass('active');
 
         //4초마다 다음슬라이드로 이동하도록 작성을 합니다.
         //setInterval(할일, 시간);
@@ -158,6 +184,10 @@
             $(this).addClass('active').siblings().removeClass('active');
         });
 
+        //인덱스번호를 만들어서 한개씩 줄고 늘고 하는 방법을 선택을 해야합니다.
+        var slideIndex = 0; //슬라이드 번호를 확인하기 위해서 슬라이드 인덱스를 하나 만듭니다.
+        var numSlide = $('.slider .slide').length//마지막일때 다시 첫번째로 들어오도록 하려면 마지막을 구별할 변수를 정해야합니다.
+        
       </script>
 </body>
 </html>

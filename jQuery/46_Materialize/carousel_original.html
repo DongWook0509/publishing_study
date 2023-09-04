@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /*
+        슬라이드용 이미지 경로 
+        https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-08.jpg
+        https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-09.jpg
+        https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-10.jpg
+        https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-11.jpg
+        https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-12.jpg
+
+*/
+        .controls {text-align: center;}
+        /*가운데 정렬*/
+        .carousel {margin:0 auto;}
+        /*부모가 만들어준 공간안에서 이미지를 다 써라 100%*/
+        .carousel-item img{width:100%; }
+        .indicators{
+        background: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--icon cdn-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-08.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-09.jpg"></a>
+        <a class="carousel-item" href="#three!"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-10.jpg"></a>
+        <a class="carousel-item" href="#four!"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-11.jpg"></a>
+        <a class="carousel-item" href="#five!"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/food-drink-12.jpg"></a>
+    </div>
+    <div class="controls">
+      <span class="prev btn-floating">
+        <i class="material-icons">arrow_back</i>    
+      </span>
+      <span class="next btn-floating">
+        <i class="material-icons">arrow_forward</i>
+      </span>
+    </div>
+    
+
+    <script>
+        var slide = $('.carousel').carousel({
+        dist:0,
+        padding:20,
+        indicators:true
+        });
+        //slide.carousel('next');
+        $('.controls .prev').click(function(){
+        slide.carousel('prev');
+        });
+        $('.controls .next').click(function(){
+        slide.carousel('next');
+        });
+    </script>
+
+</body>
+</html>

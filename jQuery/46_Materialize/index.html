@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .col {
+            background-color: #f99;
+            color: #fff;
+            border: 2px solid #fff;
+            /* padding, margin 수정x */
+        }
+
+        /* .inner {
+        background-color: #f99;
+        color: #fff;
+        border: 2px solid #000;
+        } */
+    </style>
+</head>
+<body>
+    <!-- Compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--icon cdn-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <div class="container">
+        <div class="row">
+            <!--1-->
+            <div class="col s12">
+                <h3>title</h3>
+            </div>
+
+            <!--2-->
+            <div class="col s6">
+                <h3>title</h3>
+            </div>
+            <div class="col s6">
+                <h3>title</h3>
+            </div>
+
+             <!--3-->
+            <div class="col s12 m4">
+                <h3>title</h3>
+            </div>
+            <div class="col s12 m4">
+                <h3>title</h3>
+            </div>
+            <div class="col s12 m4">
+                <h3>title</h3>
+            </div>
+
+            <!--4-->
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <h3>title</h3>
+                </div>
+            </div>
+
+            <!--button-->
+            <a class="waves-effect waves-light btn btn-large">button</a>
+            <a class="waves-effect waves-light btn #81d4fa light-blue lighten-3"><i class="material-icons left">cloud</i>button</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+            
+            <p>
+                <a href="" class="btn-floating btn-large blue waves-effect waves-light">
+                    <i class="material-icons">thumb_up</i>
+                </a>
+            </p>
+
+
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large red">
+                  <i class="large material-icons">mode_edit</i>
+                </a>
+                <ul>
+                  <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                  <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+                  <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+                  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>  
+
+    <Script>
+        
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('.fixed-action-btn').floatingActionButton();
+        });
+    </Script>
+
+</body>
+</html>

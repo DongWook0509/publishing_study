@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        /*
+        이 방법을 아셔야 더보기가 됩니다.
+        $.getJSON('파일경로', function(data){
+            //data로 할일 ....
+        });
+        */
+
+        /*아까시간 기준*/
+        /*http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=6720d033f8dcf818e5ab322f3818cc13&units=metric*/
+
+        /*현재시간 기준*/
+        /*https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=6720d033f8dcf818e5ab322f3818cc13&units=metric*/
+
+        $.getJSON('https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=6720d033f8dcf818e5ab322f3818cc13&units=metric', function(data){
+            //data로 할일 (전체 데이터를 data로 받았습니다.)
+            //alert(data.list[0].main.temp_min);
+            /* --아까시간 기준
+            var $minTemp = data.list[0].main.temp_min;
+            var $maxTemp = data.list[0].main.temp_max;
+            var $cTemp = data.list[0].main.temp;
+            var $cCata = data.list[0].dt_txt;
+            var $wIcon = data.list[0].weather[0].icon;
+            alert($wIcon);
+            */
+
+            var $minTemp = data.main.temp_min;
+            var $maxTemp = data.main.temp_max;
+            var $cTemp = data.main.temp;
+            //현재시각 계싼하기 
+            var $now = new Date($.now());
+            var $cData = $now.getFullYear() +'/'+ ($now.getMonth()+1) +'/'+ $now.getDate() +'/' + $now.getHours() + ':' + $now.getMinutes();
+            //var $cData = data.dt;
+            var $wIcon = data.weather[0].icon;
+
+            //A.appendTo(B) B요소의 내용의 뒤에 A를 추가 
+            //A.append(B) A요소의 내용의 뒤에 B를 추가 
+            //A.prependTo(A) B요소의 내용의 앞에 A를 추가
+            //A.prependTo(B) A요소의 내용의 앞에 B를 추가
+            $('.ctemp').append($cTemp + '도');
+            $('.clowtemp').append($minTemp + '도');
+            $('.chightemp').append($maxTemp + '도');
+            $('.title_weather').prepend($cData);
+            $('.cicon').append('<img src ="https://openweathermap.org/img/wn/' + $wIcon + '@2x.png">');
+            //<img src ="https://openweathermap.org/img/wn/10d@2x.png" alt="날씨"> 
+
+            //unix의 시간입니다.
+            // Date.now(); == $.now
+            //alert(Date.now()); //1693831011356 
+            //alert($.now()); //1693831011356 
+
+            //new Date(Date.now());
+            //new Date($.now())
+
+            //new Date(Date.now()) == new Date($.now())
+            //alert(new Date(Date.now())); //Mon Sep 04 2023 21:38:53 GMT+0900 (한국 표준시)
+            var $now = new Date($.now());
+        })
+    </script>
+</head>
+<body>
+    <h2 class="title_weather"> -날씨 예보</h2>
+    <div class="ctemp">현재온도 : </div>
+    <div class="clowtemp">최저온도 : </div>
+    <div class="chightemp">최고온도 : </div>
+    <div class="cicon">아이콘 : </div>
+</body>
+</html>

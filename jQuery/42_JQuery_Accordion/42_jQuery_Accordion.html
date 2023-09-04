@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .question{
+            transition: 0.3s ease-in-out;
+        }
+
+        .answer{
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="qna_list">  
+        <h3 class="question">Question</h3>
+            <div class="answer">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptatem ullam inventore ad aperiam consectetur eum provident vel optio, cumque velit omnis possimus ipsum magni, quod minus error atque nobis.
+             </p>
+        </div>
+    
+        <h3 class="question">Question</h3>
+            <div class="answer">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptatem ullam inventore ad aperiam consectetur eum provident vel optio, cumque velit omnis possimus ipsum magni, quod minus error atque nobis.
+             </p>
+        </div>
+    
+        <h3 class="question">Question</h3>
+            <div class="answer">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptatem ullam inventore ad aperiam consectetur eum provident vel optio, cumque velit omnis possimus ipsum magni, quod minus error atque nobis.
+             </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script>
+        
+        $( function() {
+         $(".qna_list").accordion();
+        });
+
+       /*  
+       $('.question').click(function(){
+            //1번째 방법
+            //$(this).next().slideToggle();
+            //$(this).next().siblings('answer').slideUp();
+           
+            //2번째 방법
+            //$(this).next().slideToggle().siblings('.answer').slideUp();
+        }); 
+        */
+    </script>
+</body>
+</html>

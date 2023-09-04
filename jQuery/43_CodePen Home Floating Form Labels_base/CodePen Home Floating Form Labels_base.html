@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        body {
+            color: #444;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        .input-group {
+            width: 340px;
+            margin: 50px auto;
+            /*(4) position의 기준을 잡아줍니다.*/
+            position: relative;
+        }
+
+        /* (1) 아래쪽에만 보더를 가게끔 인풋창의 스타일을 바꿔줍니다. */
+        input {
+          border: none;
+          border-bottom: 1px solid #888;
+          font-size: 20px;
+          /*(3) display: 인라인 요소를 block을 줘서 아래로 내려가게 합니다. */
+          display: block;
+        }
+
+        /* (2) input에 focus가 걸렸을때 outline을 없애겠습니다. */
+        input:focus{
+            outline: none;
+            /*
+            (9) focus 시에 선이 두꺼워지게 합니다.
+            */
+            border-bottom-width: 4px;
+            border-color: #48f;
+            transition: 0.5s;
+        }
+
+        /* (4) label의 포지션을 줘서 겹치게 했습니다.*/
+        label{
+            position: absolute;
+            color : #aaa;
+            /*
+              (4) 
+              클릭을 했을때 위로 올라가게 하기 위해서 
+              클릭하기전에도 top값이 있어야 있어야 합니다. 
+            */
+            left: 0;
+            top: 0;
+
+            /*
+             (5) 기본적으로 안보이게 해야합니다. opacity를 0으로 줘야합니다. 
+            */
+            opacity: 0;
+            /*
+            (6) 텍스트를 쓰라는 마우스의 포인터를 만들기 위해서 
+            */
+            visibility: hidden;
+            /*
+            (7) transition 을 걸어줍니다.
+             */
+             transition: 0.5s;
+        }
+
+        /*(8 .label-top 이라는 클래스가 들어오면 css 변경*/
+        .label-top{
+            top:-20px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form>
+        <div class="input-group">
+          <label for="txtFirstName">First Name</label>
+          <input type="text" id="txtFirstName" placeholder="First Name" />
+        </div>
+        <div class="input-group">
+          <label for="txtLastName">Last Name</label>
+          <input type="text" id="txtLastName" placeholder="Last Name" />
+        </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //(1) input을 클릭하면 LastName, FirstName 이 없어지도록 해야합니다. 
+        $('input').click(function(){
+            $(this).attr('placeholder', '');
+            //(2) input을 클릭을 하면 label에다가 클래스명에다가 .label-top이라는 메서드가 들어올 수 있게 해보겠습니다.
+            //(2-1) 부모로 갔다가 자식을 찾는 방법으로 사용을 하겠습니다.
+            //(2-3) addClass의 점 주의
+            $(this).parent().find('label').addClass('label-top');
+
+        });
+
+
+
+    </script>
+</body>
+</html>
