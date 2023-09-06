@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div class="mobile">mobile device</div>
+    <div class="pc">pc device</div>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="detectmobilebrowser.js.txt"></script>
+    <script>
+        console.log(jQuery.browser.mobile);
+        //pc라고 한다면 false가 나올것이고 
+        //모바일이라고 한다면 true가 나올것입니다.
+        
+        //지금 사용자의 주소를 출력해주는 메소드 
+        console.log(location.href);
+        //location.href
+
+        //(window.devicePixelRatio > 1)
+        if(jQuery.browser.mobile == true){
+            $('.pc').hide();
+            location.href = "./54_moblie_Detect/moblie/" //주소이동
+        }else{
+            $('.mobile').hide();
+        }
+
+    </script>
+</body>
+</html>
