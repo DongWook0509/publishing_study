@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        .swiper {
+          background: #ccc;
+          width: 1200px;
+          height: 600px;  
+        } 
+
+        .bg1 {background: url("../swiper_exam2/img/lightbulb-3104355_640.jpg") no-repeat center/cover;}
+        .bg2 {background: url("../swiper_exam2/img/loveourplanet-4851331_640.jpg") no-repeat center/cover;}
+        .bg3 {background: url("../swiper_exam2/img/work-harder-1845901_640.jpg") no-repeat center/cover;}
+
+        .swiper-pagination-bullet-active {
+          background: red !important;
+        }
+        
+        .swiper-pagination-bullet {
+          background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper mySwiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide bg1">
+          </div>
+          <div class="swiper-slide bg2">
+          </div>
+          <div class="swiper-slide bg3">
+          </div>
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+        
+      </div>
+      <div class="btn">
+        <button class="start">시작</button>
+        <button class="stop">정지</button>
+      </div>
+    </body>
+
+<script>
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+
+  autoplay: {
+   delay: 5000,
+  },
+
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+
+});
+$(".stop").click(function(){
+    swiper.autoplay.stop();
+});
+$(".start").click(function(){
+    swiper.autoplay.start();
+});
+</script>
+</html>

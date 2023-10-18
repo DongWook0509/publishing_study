@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .ovr_button{
+            margin: 30px;
+            width: 180px;
+            height: 70px;
+            background: blue;
+            color: white;
+        }
+
+        #overlay{
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2;
+        }
+        
+        .exit{ 
+            display: block;
+            background: yellow;
+            width: 100px;
+            height: 100px;
+            cursor : pointer;
+        }
+        
+        .modal{
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: cyan;
+            z-index: 3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--오버레이-->
+    <div class="overlay_box">  
+        <!--오버레이-->
+        <div id ="overlay"></div>
+
+        <!--modal-->
+        <div class="modal">
+            <span class="exit">X</span>
+        </div>
+    </div>
+
+    <button class="ovr_button">오버레이</button>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+       /* 
+        const exit = document.querySelector(".exit");
+        const overLay = document.querySelector("#overlay");
+        const ovrButton = document.querySelector(".ovr_button");
+        const modal = document.querySelector(".modal");
+        
+        ovrButton.addEventListener("click", function(){
+            overlay.style.display = "block";
+            modal.style.display = "block";
+            // html 상황에 따라서 flex를 사용할지 block을 사용할지 판단하면 된다.
+        });
+
+        exit.addEventListener("click", function(){
+            overLay.style.display = "none";
+            modal.style.display = "none";
+        });
+
+        overLay.addEventListener("click", function(){
+            overLay.style.display = "none";
+            modal.style.display = "none";
+        }) */
+
+        let  $exit = $(".exit"),
+              $overLay = $("#overlay"),
+              $ovrButton = $(".ovr_button"),
+              $modal = $(".modal");
+
+        $ovrButton.click(function(){
+            $overLay.css({display : "block"});
+            $modal.css({display : "block"});
+        })
+        
+        $exit.click(function(){
+            $overLay.css({display : "none"});
+            $modal.css({display : "none"});
+        })
+
+        $overLay.click(function(){
+            $overLay.css({display : "none"});
+            $modal.css({display : "none"});
+        });
+
+    </script>
+</body>
+</html>

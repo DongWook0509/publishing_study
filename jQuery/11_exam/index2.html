@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab-container {
+        border: 1px solid red;
+        width: 270px;
+        }
+        .tab {
+            display: flex;
+            list-style: none;
+        }
+
+        .tab-button {
+        background: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        }
+
+        .tab-button.active {
+        background: blue;
+        }
+
+        .tab-content {
+        display: none;
+        padding: 10px;
+        }
+
+        .tab-content.active {
+        display: block;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="tab-container">
+        <ul class="tab">
+          <li class="tab-button active">Tab 1</li>
+          <li class="tab-button">Tab 2</li>
+        </ul>
+        <div class="tab-content active">Content for Tab 1.</div>
+        <div class="tab-content">Content for Tab 2.</div>
+    </div>
+</body>
+<script>
+    $('.tab-button').click(function() {
+// Remove 'active' class from all buttons and contents
+$('.tab-button').removeClass('active');
+$('.tab-content').removeClass('active');
+
+// Add 'active' class to the clicked button and corresponding content
+$(this).addClass('active');
+const tabContentId = $(this).index(); // Get the index of the clicked button
+$('.tab-content:eq(' + tabContentId + ')').addClass('active');
+});
+
+// Set the initial tab to be active (e.g., Tab 1)
+$('.tab-button:eq(0)').click();
+</script>
+</html>

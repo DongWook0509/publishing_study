@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+        }   
+
+        a {text-decoration: none; font-size: 12px; color: inherit;}
+        /*img에 max-width : 100% */
+        img{width: 800px; height: 200px;}
+
+        /*반응형을 하고싶다면*/
+        .swiper {
+            width: 80%;
+            max-width: 1280px;
+            padding-bottom: 25px;
+        }
+
+        .swiper-pagination-bullet{
+            width: 100px;
+            border-radius: 0;
+            height: 3px;
+        }
+
+        .swiper-pagination-bullet-active{
+            background: black;
+        }
+</style>
+</head>
+<body>
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+            <a href="#">
+                <img src="../swiper_exam2/img/lightbulb-3104355_640.jpg" alt="img_sample">
+                <h2>프리미엄 중 프리미엄</h2>
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#">
+                <img src="../swiper_exam2/img/loveourplanet-4851331_640.jpg" alt="img_sample">
+                <h2>프리미엄 중 프리미엄</h2>
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#">
+                <img src="../swiper_exam2/img/work-harder-1845901_640.jpg" alt="">
+                <h2>프리미엄 중 프리미엄</h2>
+            </a>
+        </div>
+
+        <div class="swiper-slide">
+            <a href="#">
+                <img src="../swiper_exam2/img/cat1.jpg" alt="img_sample">
+                <h2>프리미엄 중 프리미엄</h2>
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#">
+                <img src="../swiper_exam2/img/cat2.jpg" alt="img_sample">
+                <h2>프리미엄 중 프리미엄</h2>
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#">
+                <img src="../swiper_exam2/img/cat3.jpg" alt="img_sample">
+                <h2>프리미엄 중 프리미엄</h2>
+            </a>
+        </div>
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+
+    <script>
+    var swiper = new Swiper(".swiper", {
+      loop : true,
+      clickable:true, /*페이지네이션 클릭시 활성화*/
+      slidesPerView: 3,
+      spaceBetween: 30,
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+        clickable: true,
+      },
+      breakpoints: {
+      // when window width is >= 320px
+      320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+      },
+      // when window width is >= 480px
+      480: {
+      slidesPerView: 3,
+      spaceBetween: 30
+      },
+    }
+    });
+    </script>
+</html>

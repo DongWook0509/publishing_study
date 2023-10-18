@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+/*1.
+ slideshow 
+ 이미지의 높이만큼 지정을 합니다
+  - slideshow 의 기준을 잡아줘야합니다. position : relative;
+  - 넘치는건 안보이게 해야합니다. 왜? 
+  body보다 가로길이가 넓어지니까 가로스크롤이 생기기때문입니다.
+*/
+.container {
+    border: 1px solid red;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.slideshow {
+    position: relative;
+    min-width : 800px;
+    height : 350px;
+    overflow: hidden;
+}
+
+/*2.
+slideshow_slides 를 길게 네모 네모 네모 이렇게 나열되게 할꺼입니다. 
+position : absolute
+width : 100% 
+height : 100% 
+*/
+
+.slideshow_slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.slideshow_slides a {
+       /*a의 크기가 몇이든 상관없이 센터에 있을 수 있습니다*/
+       position: absolute;
+       width:100%;
+       height: 100%;
+       text-align: center; /*a태그의 이미지를 가운데 */
+   
+}
+
+/*4
+slideshow_nav 안에 태그들
+prve next
+좌우버튼이 저기에 나오게 CSS를 잡아주세요
+*/
+
+.slideshow_nav a {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color : gray;
+    text-decoration: none;
+    border-radius: 100%;
+    border: 1px solid gray;
+    background-color : rgb(255,255,255,0.6);
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+}
+
+/*5. prev next 버튼위치 */
+.slideshow_nav a.disabled{
+    background-color:black;
+    color : white;
+    pointer-events: none; 
+}
+
+
+.slideshow_nav a.prev{
+    margin-left:  -300px;
+}
+
+.slideshow_nav a.next{
+    margin-left: 300px;
+}
+/*페이지네이션*/
+.indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    /*가운데로 보내겠습니다.*/
+    display: flex;
+    justify-content: center;
+}
+
+.indicator a {
+    text-indent: -9999px;
+    border-radius: 100%;
+    background-color: white;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+}
+
+.indicator a.active{
+    text-indent: -9999px;
+    background-color: red;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+}

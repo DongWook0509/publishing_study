@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+        }
+        .swiper {
+          text-align: center;
+          background: #ccc;
+          height: 100vh;  
+        } 
+
+        .swiper-slide {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .bg1 {background: url("../swiper_exam2/img/lightbulb-3104355_640.jpg") no-repeat center/cover;}
+        .bg2 {background: url("../swiper_exam2/img/loveourplanet-4851331_640.jpg") no-repeat center/cover;}
+        .bg3 {background: url("../swiper_exam2/img/work-harder-1845901_640.jpg") no-repeat center/cover;}
+
+        .swiper-pagination-bullet-active {
+          background: red !important;
+        }
+        
+        .swiper-pagination-bullet {
+          background: yellow;
+        }
+
+        .swiper span {font-size: 24px; color : #fff; opacity: 0;}
+        .swiper .tit {font-size: 80px; font-weight: bold; color : #fff; opacity: 0;}
+        .swiper .txt {font-size: 12px; width: 800px; margin-top: 50px; color : #fff; opacity: 0;}
+
+         .swiper-slide-active span{animation: ani 2s both;}
+         .swiper-slide-active .tit{animation: ani 2s both;}
+         .swiper-slide-active .txt{animation: ani 2s both;}
+
+        @keyframes ani {
+          0% {opacity: 0; transform: translateY(30px)}  
+          100% {opacity: 1; transform: translateY(0px)}  
+        }
+</style>
+</head>
+<body>
+    <div class="swiper mainSwiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide bg1">
+            <span >사람과의 대화처럼 </span>
+            <p class="tit">인공지능(AI)음성기술 중심에 <br>
+               리드스피커가 있습니다.
+            </p>
+            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, minus molestias magnam cum libero adipisci repellendus corporis porro, excepturi voluptates impedit! Pariatur at, nesciunt perferendis maiores maxime harum reprehenderit tempora.</p>
+          </div>
+          <div class="swiper-slide bg2">
+            <span>사람과의 대화처럼 </span>
+            <p class="tit">인공지능(AI)음성기술 중심에 <br>
+               리드스피커가 있습니다.
+            </p>
+            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus molestias harum possimus rerum repellendus exercitationem optio impedit pariatur? Minima voluptatum ea dignissimos facere quis, eius aperiam rerum cum at mollitia!</p>
+          </div>
+          <div class="swiper-slide bg3">
+            <span>사람과의 대화처럼 </span>
+            <p class="tit">인공지능(AI)음성기술 중심에 <br>
+               리드스피커가 있습니다.
+            </p>
+            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem in quas nulla, dolores aliquam quaerat maiores, tenetur consequatur impedit, repellendus maxime error? Eos earum quia, culpa similique placeat et incidunt?</p>
+          </div>
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+        
+      </div>
+      <div class="btn">
+        <button class="start">시작</button>
+        <button class="stop">정지</button>
+      </div>
+    </body>
+
+<script>
+const swiper = new Swiper('.mainSwiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+
+  /* autoplay: {
+   delay: 5000,
+  }, */
+
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+
+});
+$(".stop").click(function(){
+    swiper.autoplay.stop();
+});
+$(".start").click(function(){
+    swiper.autoplay.start();
+});
+</script>
+</html>

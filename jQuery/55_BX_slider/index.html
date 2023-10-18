@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <style>
+        .slideWrap{
+            width: 960px;
+            margin : 2em auto;
+        }
+        .slideWrap img {
+            width: 960px;
+            height: 800px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>BX Slider</h2>
+
+    <h2>기본슬라이드</h2>
+    <!-- div.basic_slider>img[src="img/ssg0$.jpg"]*5 -->
+    <!--slideWrap 라는 클래스명을 추가-->
+    <!--주의할점 : basic_slider slideWrap 여기에다가 크기를 주면안됩니다.
+        우리가 컨트롤 할 수 있는 부모요소를 하나 더 만들어줍니다. 
+    -->
+    <div class="slideWrap">
+        <div class="basic_slider">
+            <img src="img/ssg01.jpg" alt="">
+            <img src="img/ssg02.jpg" alt="">
+            <img src="img/ssg03.jpg" alt="">
+            <img src="img/ssg04.jpg" alt="">
+            <img src="img/ssg05.jpg" alt="">
+        </div>
+    </div>
+
+    <!--li로 갑쌌다는 이야기는 설명이 가능합니다.-->
+    <div class="slideWrap">
+        <ul class="basic_slider">
+            <li><img src="img/ssg01.jpg" alt=""><h2>노경은</h2></li>
+            <li><img src="img/ssg02.jpg" alt=""><h2>하재훈</h2></li>
+            <li><img src="img/ssg03.jpg" alt=""><h2>서진용</h2></li>
+            <li><img src="img/ssg04.jpg" alt=""><h2>에레디아</h2></li>
+            <li><img src="img/ssg05.jpg" alt=""><h2>엘리아스</h2></li>
+        </ul>
+    </div>
+    
+    <script>
+        $(function(){
+            /*1. 기본사용*/
+            $(".basic_slider").bxSlider();
+        })
+    </script>
+
+
+</body>
+</html>
